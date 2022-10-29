@@ -41,6 +41,16 @@ ngOnInit(): void {
     this.loggedIn = true;
     this.currentUser = 'Welcome ' + sessionStorage.getItem('Name:');
   }
+
+ 
+}
+
+logout(): void{
+  sessionStorage.setItem('ID:', "" );
+  sessionStorage.setItem('Name:', "");
+  this.loggedIn = false;
+  console.log("in logout " + this.loggedIn);
+  //window.location.href = '/dashboard';
 }
  
 }

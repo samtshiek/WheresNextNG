@@ -16,18 +16,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
-import { SignInComponent}  from './login/login.component';  
-import { GoogleSigninComponent }  from './google.signin';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleSigninComponent,
-    SignInComponent,
     LoginComponent,
-    LogoutComponent,
     UsersComponent,
     ProfileComponent,
     FavoritesComponent,

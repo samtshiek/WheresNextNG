@@ -3,16 +3,16 @@
   <li *ngFor="let user of users">
     <button [class.selected]="user === selectedUser" type="button" (click)="onSelect(user)">
       <span class="badge">{{user.id}}</span>
-      <span class="name">{{user.name}}</span>
+      <span class="name">{{user.username}}</span>
     </button>
   </li>
 </ul>
 
 <div *ngIf="selectedUser">
-  <h2>{{selectedUser.name | uppercase}} Details</h2>
+  <h2>{{selectedUser.username | uppercase}} Details</h2>
   <div>id: {{selectedUser.id}}</div>
   <div>
     <label for="user-name">User name: </label>
-    <input id="user-name" [(ngModel)]="selectedUser.name" placeholder="name">
+    <input id="user-name" [(ngModel)]="selectedUser.username" placeholder="name">
   </div>
 </div>
