@@ -12,11 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './profile/profile.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { QuizComponent } from './quiz/quiz.component';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent } from './login/login.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+
+
 
 
 @NgModule({
@@ -26,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     UsersComponent,
     ProfileComponent,
     FavoritesComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,8 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatIconModule,
     MatTabsModule,
+    MatRadioModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
