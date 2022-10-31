@@ -27,4 +27,19 @@ export class UserService {
   newUser(newUser: NewUser): Observable<User> {
     return this.http.post<User>('http://localhost:3000/newuser', newUser);
   }
+
+  getPlaces(): Observable<any> {
+
+    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
+    
+  //  let promise = observable.toPromise();
+
+   // let data = promise.then((res) => {console.log("DATA Result: " + JSON.stringify(res))});
+    
+   // console.log("The observable: " + observable);
+
+  //  console.log("The promise: " + promise);
+    
+    return observable;
+  }
 }
