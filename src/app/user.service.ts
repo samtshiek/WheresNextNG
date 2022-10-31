@@ -17,15 +17,15 @@ export class UserService {
     return this.http.get<User[]>('http://localhost:3000/users');
   }
   getUser(id: number): Observable<User> {
-    return this.http.get<User>('http://localhost:3000/userdata/'+id);
+    return this.http.get<User>('http://localhost:3000/user:/'+id);
   }
 
   loginUser(newUser: NewUser): Observable<string> {  // usin a post as I want to pass the data in the body
-    return this.http.post<string>('http://localhost:3000/loginUser', newUser);
+    return this.http.post<string>('http://localhost:3000/login', newUser);
   }
 
   newUser(newUser: NewUser): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/newuser', newUser);
+    return this.http.post<User>('http://localhost:3000/users/create', newUser);
   }
 
   getPlaces(): Observable<any> {

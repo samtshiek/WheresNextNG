@@ -1,8 +1,8 @@
 export class User {
     password: string;
     username: string;
-    firstname:string;
-    lastname:string;
+    firstName:string;
+    lastName:string;
     age:string;
     sex:string;
     email:string;
@@ -15,12 +15,18 @@ export class User {
   export class NewUser {
     password: string;
     username: string;
-    firstname:string;
-    lastname:string;
+    firstName:string;
+    lastName:string;
     age:string;
     sex:string;
     email:string;
     city:string;
     state:string;
     country:string;
+  }
+
+    
+  export class loginUser {
+    password: string;
+    username: string;
   }

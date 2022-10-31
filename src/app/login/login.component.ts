@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
+import { loginUser, User } from '../user';
 import { NewUser } from '../user';
 import { UserService } from '../user.service';
 
@@ -13,13 +13,14 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean;
   newUser: NewUser;
   existingUser: User;
+  loginUser:loginUser;
   
   CreateAccount(pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {      //newuser does not have an _id
       this.newUser = {
         username: pUserName,
         password: pPw,
-        firstname: pFirstName,
-        lastname: pLastname,
+        firstName: pFirstName,
+        lastName: pLastname,
         age:pAge,
         sex:pSex,
         email:pEmail,
@@ -42,19 +43,12 @@ export class LoginComponent implements OnInit {
    })
   }
 
-  login (pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {
+  login (pUserName:string, pPw:string,): void {
 
-    this.newUser = {
+    this.loginUser = {
       username: pUserName,
       password: pPw,
-      firstname: pFirstName,
-      lastname: pLastname,
-      age:pAge,
-      sex:pSex,
-      email:pEmail,
-      city:pCity,
-      state:pState,
-      country:pCountry
+
     }
     this.userService.loginUser(this.newUser)
       .subscribe(data => {
@@ -86,8 +80,8 @@ export class LoginComponent implements OnInit {
         username: "",
         password: "",
         id: "",
-        firstname: "",
-        lastname: "",
+        firstName: "",
+        lastName: "",
         age:"",
         sex:"",
         email:"",
