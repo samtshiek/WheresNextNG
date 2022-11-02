@@ -3,16 +3,35 @@
   <li *ngFor="let user of users">
     <button [class.selected]="user === selectedUser" type="button" (click)="onSelect(user)">
       <span class="badge">{{user.id}}</span>
-      <span class="name">{{user.name}}</span>
+      <span class="name">{{user.username}}</span>
     </button>
   </li>
 </ul>
 
 <div *ngIf="selectedUser">
-  <h2>{{selectedUser.name | uppercase}} Details</h2>
+  <h2>{{selectedUser.username | uppercase}} Details</h2>
   <div>id: {{selectedUser.id}}</div>
   <div>
     <label for="user-name">User name: </label>
-    <input id="user-name" [(ngModel)]="selectedUser.name" placeholder="name">
+    <input id="user-name" [(ngModel)]="selectedUser.username" placeholder="name">
+  </div>
+</div>
+
+<h2>My Places</h2>
+<ul class="places">
+  <li *ngFor="let place of places">
+    <button [class.selected]="place === selectedPlace" type="button" (click)="onSelectPlace(place)">
+      <span class="badge">{{place.name}} </span>
+      <span class="name">{{place.rating}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedPlace">
+  <h2>{{selectedPlace.name | uppercase}} Details</h2>
+  <div>Place rating: {{selectedPlace.rating}}</div>
+  <div>
+    <label for="place-name">Place name: </label>
+    <input id="place-name" [(ngModel)]="selectedPlace.name" placeholder="name">
   </div>
 </div>

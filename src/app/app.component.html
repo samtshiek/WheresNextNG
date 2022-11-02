@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span>Where'sNext! </span>
     <br/>
-    <h4>{{currentUser}}</h4><br/>
+    <!-- <h4>{{currentUser}}</h4><br/> -->
 
     
     <div class="toolbar-menu">
@@ -16,13 +16,9 @@
   </mat-toolbar>
 <br/>
 <br/>
- 
-<div *ngIf="!loggedIn">
-    <signin></signin>
-    </div>
-   <div *ngIf="loggedIn">
-   <app-logout></app-logout>
-   </div>
+
+   <app-login></app-login> 
+<a routerLink = "/Quiz">Quiz </a>
    
   
   

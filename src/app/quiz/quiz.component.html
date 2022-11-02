@@ -1,0 +1,140 @@
+
+<mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question1">
+  
+  <h2 id="example-radio-group-label">1. What do you like to watch on TV?</h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let tv of tv" [value]="tv">
+    {{tv}}
+  </mat-radio-button>
+</mat-radio-group>
+
+<mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question2">
+  
+  <h2 id="example-radio-group-labels">2. How do you feel about eating out? </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let eating of eating" [value]="eating">
+    {{eating}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question2">
+  
+  <h2 id="example-radio-group-labels">2. Do you laugh when you see a clown? </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let clown of clown" [value]="clown">
+    {{clown}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question4">
+  
+  <h2 id="example-radio-group-labels">4. How do you feel when you view a beautiful sculpture?  </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let sculpture of sculpture" [value]="sculpture">
+    {{sculpture}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question5">
+  
+  <h2 id="example-radio-group-labels">5. If someone asked you to go out in nature, what would you respond?   </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let nature of nature" [value]="nature">
+    {{nature}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question6">
+  
+  <h2 id="example-radio-group-labels">6. Where will I find you after 9pm?  </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let find of find" [value]="find">
+    {{find}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question7">
+  
+  <h2 id="example-radio-group-labels">7. If a friend asks you to play/watch sports with them, how would you answer?  </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let sports of sports" [value]="sports">
+    {{sports}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question8">
+  
+  <h2 id="example-radio-group-labels">8. If you are offered a long island iced tea, what would you do?  </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let tea of tea" [value]="tea">
+    {{tea}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question9">
+  
+  <h2 id="example-radio-group-labels">9. What feelings does the smell of coffee invoke for you?   </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let coffee of coffee" [value]="coffee">
+    {{coffee}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-radio-group
+color="primary"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="question10">
+  
+  <h2 id="example-radio-group-labels">10. Do you live an active lifestyle?  </h2>
+  
+  <mat-radio-button  class="example-radio-button" *ngFor="let lifestyle of lifestyle" [value]="lifestyle">
+    {{lifestyle}}
+  </mat-radio-button>
+  </mat-radio-group>
+
+  
+  <button color="primary">Submit</button>
+    
