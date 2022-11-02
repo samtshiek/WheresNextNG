@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loggedIn: boolean;
   newUser: NewUser;
   existingUser: User;
-  loginUser:loginUser;
+  user:loginUser;
   
   CreateAccount(pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {      //newuser does not have an _id
       this.newUser = {
@@ -45,17 +45,17 @@ export class LoginComponent implements OnInit {
 
   login (pUserName:string, pPw:string,): void {
 
-    this.loginUser = {
+    this.user = {
       username: pUserName,
       password: pPw,
 
     }
-    this.userService.loginUser(this.newUser)
+    this.userService.loginUser(this.user)
       .subscribe(data => {
-        console.log("id coming back " + data)
+        console.log("id coming back ", data)
         this.existingUser.id = data;
-        sessionStorage.setItem('ID:', data );
-        sessionStorage.setItem('Name:', this.newUser.username);
+        sessionStorage.setItem('ID:', data);
+        sessionStorage.setItem('Name:', this.user.username);
  
         this.loggedIn = true;
         console.log("in login " + this.loggedIn);

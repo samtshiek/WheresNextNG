@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NewUser } from './user';
+import { NewUser, loginUser } from './user';
 
 
 @Injectable({
@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<User>('http://localhost:3000/user:/'+id);
   }
 
-  loginUser(newUser: NewUser): Observable<string> {  // usin a post as I want to pass the data in the body
+  loginUser(newUser: loginUser): Observable<string> {  // usin a post as I want to pass the data in the body
     return this.http.post<string>('http://localhost:3000/login', newUser);
   }
 
