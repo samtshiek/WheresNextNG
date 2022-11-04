@@ -27,7 +27,11 @@ export class AppComponent {
             label: 'Favorites',
             link: './Favorites',
             index: 2
-        }, 
+        }, {
+            label: 'Places',
+            link: './Places',
+            index: 3
+        },
     ];
 }
 ngOnInit(): void {

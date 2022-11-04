@@ -5,6 +5,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { QuizComponent } from './quiz/quiz.component';
+import {PlacesComponent} from './places/places.component';
 
 const routes: Routes = [
   // { path: 'heroes', component: UsersComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'Favorites', component: FavoritesComponent },
   { path: 'Feedback', component: FeedbackComponent },
   { path: 'Quiz', component: QuizComponent },
+  { path: 'Places', component: PlacesComponent },
 ];
 
 @NgModule({
