@@ -33,6 +33,7 @@ export class AppComponent {
             index: 3
         },
     ];
+    
 }
 ngOnInit(): void {
   this.router.events.subscribe((res) => {
@@ -45,6 +46,7 @@ ngOnInit(): void {
     this.loggedIn = true;
     this.currentUser = 'Welcome ' + sessionStorage.getItem('Name:');
   } 
+
 
 
  

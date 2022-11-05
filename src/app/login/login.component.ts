@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { loginUser, User } from '../user';
 import { NewUser } from '../user';
+import { myUser } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -14,6 +15,18 @@ export class LoginComponent implements OnInit {
   newUser: NewUser;
   existingUser: User;
   user:loginUser;
+  signup:boolean =false;
+  loginbut:boolean = false;
+
+  signmeUp():void{
+    this.signup =true;
+    this.loginbut =false;
+  }
+  logIn():void{
+    this.loginbut =true;
+    this.signup =false;
+  }
+  
   
   CreateAccount(pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {      //newuser does not have an _id
       this.newUser = {
@@ -41,27 +54,37 @@ export class LoginComponent implements OnInit {
 
     //return
    })
+   
   }
 
   login (pUserName:string, pPw:string,): void {
+    const message = document.getElementById("loginmessage");
 
     this.user = {
       username: pUserName,
       password: pPw,
 
     }
+          //.subscribe((data : myUser) => {
     this.userService.loginUser(this.user)
-      .subscribe(data => {
-        console.log("id coming back ", data)
-        this.existingUser.id = data;
-        sessionStorage.setItem('ID:', data);
-        sessionStorage.setItem('Name:', this.user.username);
- 
-        this.loggedIn = true;
-        console.log("in login " + this.loggedIn);
-        //window.location.href = '/dashboard';
-        //return  // not sure this is needed, but a multi line subscribe method normally needs one
-       });
+        .subscribe(data => {
+        
+       // let userdata: myUser = JSON.parse(data);
+   //   console.log(userdata.city);
+      console.log("id coming back ", data)
+      this.existingUser.id = data;
+      sessionStorage.setItem('ID:', data);
+      sessionStorage.setItem('Name:', this.user.username);
+
+      this.loggedIn = true;
+      console.log("in login " + this.loggedIn);
+        window.location.href = '/';
+
+       },(err) => {
+          console.log("Error with Login");
+          message.innerHTML="Error: Invalid Login Information!"
+
+    });
   }
 
   logout(): void{
@@ -71,6 +94,7 @@ export class LoginComponent implements OnInit {
     console.log("in logout " + this.loggedIn);
     //window.location.href = '/dashboard';
   }
+
 
   constructor(private userService: UserService) {
      }
