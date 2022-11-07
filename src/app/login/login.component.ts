@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { loginUser, User } from '../user';
 import { NewUser } from '../user';
-import { myUser } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -50,7 +49,7 @@ export class LoginComponent implements OnInit {
 
     sessionStorage.setItem('ID:', this.existingUser.id );
     sessionStorage.setItem('Name:', this.existingUser.username);
-    //window.location.href = '/dashboard';
+    window.location.href = '/';
 
     //return
    })
@@ -65,19 +64,17 @@ export class LoginComponent implements OnInit {
       password: pPw,
 
     }
-          //.subscribe((data : myUser) => {
+
     this.userService.loginUser(this.user)
         .subscribe(data => {
         
-       // let userdata: myUser = JSON.parse(data);
-   //   console.log(userdata.city);
-      console.log("id coming back ", data)
-      this.existingUser.id = data;
-      sessionStorage.setItem('ID:', data);
-      sessionStorage.setItem('Name:', this.user.username);
-
+      let userInfo =  JSON.parse(JSON.stringify(data));
+      this.existingUser = userInfo;
+      sessionStorage.setItem('ID:', this.existingUser.id);
+      sessionStorage.setItem('Name:', this.existingUser.firstName);
+      console.log("User id:"+this.existingUser.id);
       this.loggedIn = true;
-      console.log("in login " + this.loggedIn);
+      console.log("in login " + sessionStorage.getItem("ID:"));
         window.location.href = '/';
 
        },(err) => {
@@ -92,7 +89,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('Name:', "");
     this.loggedIn = false;
     console.log("in logout " + this.loggedIn);
-    //window.location.href = '/dashboard';
+    window.location.href = '/';
   }
 
 

@@ -1,7 +1,6 @@
 <mat-toolbar color="primary">
     <span>Where'sNext! </span>
     <br/>
-    <!-- <h4>{{currentUser}}</h4><br/> -->
 
     
     <div class="toolbar-menu">
@@ -23,12 +22,8 @@
    <app-login></app-login> 
   </div>
   <div *ngIf="loggedIn">
-    <h2>You are logged in </h2>
-    <!-- <div>
-      <label>id:
-        <input [(ngModel)]="existingUser.id" />
-      </label>
-    </div> -->
+    <h2>You are logged in.  {{currentUser}}</h2>
+
     <button (click)="logout()">Log Out</button>
   </div> 
   

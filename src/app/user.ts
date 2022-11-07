@@ -31,15 +31,4 @@ export class User {
     username: string;
   }
 
-  export interface myUser{
-    age: number;
-    city:string;
-    country: string;
-    firstName: string;
-    id:number;
-    lastName: string;
-    sex: string;
-    state: string;
-    username: string;
-}
 
