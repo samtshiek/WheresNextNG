@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {LoginComponent } from './login/login.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { PlacesComponent } from './places/places.component';
 
 
 
@@ -34,10 +35,12 @@ import {MatRadioModule} from '@angular/material/radio';
     FavoritesComponent,
     FeedbackComponent,
     QuizComponent,
+    PlacesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

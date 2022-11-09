@@ -1,140 +1,150 @@
+<div class="container">
+  <h1>Please take a few moment to answer few questions to get to know you better.</h1>
 
-<mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question1">
-  
-  <h2 id="example-radio-group-label">1. What do you like to watch on TV?</h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let tv of tv" [value]="tv">
-    {{tv}}
-  </mat-radio-button>
-</mat-radio-group>
+  <form [formGroup]="myform" (ngSubmit)="submit()">
 
-<mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question2">
-  
-  <h2 id="example-radio-group-labels">2. How do you feel about eating out? </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let eating of eating" [value]="eating">
-    {{eating}}
-  </mat-radio-button>
-  </mat-radio-group>
+    <div class="form-group">
+      <h2 for="question1">1. What do you like to watch on TV?</h2>
+      <div *ngFor="let question1 of question1">
+        <input id="question1-{{question1.id}}" type="radio" value="{{question1.value}}" name="{{question1.name}}"
+          formControlName="{{question1.name}}">
+        <label for="question1-{{question1.id}}">{{question1.label}}</label>
+      </div>
+
+     
+    </div>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question2">
-  
-  <h2 id="example-radio-group-labels">2. Do you laugh when you see a clown? </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let clown of clown" [value]="clown">
-    {{clown}}
-  </mat-radio-button>
-  </mat-radio-group>
+    <div class="form-group">
+      <h2 for="question2">2. How do you feel about eating out? </h2>
+      <div *ngFor="let question2  of question2">
+        <input id="question2-{{question2.id}}" type="radio" value="{{question2.value}}" name="{{question2.name}}"
+          formControlName="{{question2.name}}">
+        <label for="question2-{{question2.id}}">{{question2.label}}</label>
+      </div>
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question4">
-  
-  <h2 id="example-radio-group-labels">4. How do you feel when you view a beautiful sculpture?  </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let sculpture of sculpture" [value]="sculpture">
-    {{sculpture}}
-  </mat-radio-button>
-  </mat-radio-group>
+      
+    </div>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question5">
-  
-  <h2 id="example-radio-group-labels">5. If someone asked you to go out in nature, what would you respond?   </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let nature of nature" [value]="nature">
-    {{nature}}
-  </mat-radio-button>
-  </mat-radio-group>
+    <div class="form-group">
+      <h2 for="question3">3. Do you laugh when you see a question3? </h2>
+      <div *ngFor="let question3 of question3">
+        <input id="question3-{{question3.id}}" type="radio" value="{{question3.value}}" name="{{question3.name}}"
+          formControlName="{{question3.name}}">
+        <label for="question3-{{question3.id}}">{{question3.label}}</label>
+      </div>
+
+      
+    </div>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question6">
-  
-  <h2 id="example-radio-group-labels">6. Where will I find you after 9pm?  </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let find of find" [value]="find">
-    {{find}}
-  </mat-radio-button>
-  </mat-radio-group>
+
+    <div class="form-group">
+      <h2 for="question4">4. How do you feel when you view a beautiful sculpture?</h2>
+      <div *ngFor="let question4 of question4">
+        <input id="question4-{{question4.id}}" type="radio" value="{{question4.value}}" name="{{question4.name}}"
+          formControlName="{{question4.name}}">
+        <label for="question4-{{question4.id}}">{{question4.label}}</label>
+      </div>
+
+      
+    </div>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question7">
-  
-  <h2 id="example-radio-group-labels">7. If a friend asks you to play/watch sports with them, how would you answer?  </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let sports of sports" [value]="sports">
-    {{sports}}
-  </mat-radio-button>
-  </mat-radio-group>
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question8">
-  
-  <h2 id="example-radio-group-labels">8. If you are offered a long island iced tea, what would you do?  </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let tea of tea" [value]="tea">
-    {{tea}}
-  </mat-radio-button>
-  </mat-radio-group>
+    <div class="form-group">
+      <h2 for="question5">5. If someone asked you to go out in nature, what would you respond?   </h2>
+      <div *ngFor="let question5 of question5">
+        <input id="question5-{{question5.id}}" type="radio" value="{{question5.value}}" name="{{question5.name}}"
+          formControlName="{{question5.name}}">
+        <label for="question5-{{question5.id}}">{{question5.label}}</label>
+      </div>
+
+      
+    </div>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question9">
-  
-  <h2 id="example-radio-group-labels">9. What feelings does the smell of coffee invoke for you?   </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let coffee of coffee" [value]="coffee">
-    {{coffee}}
-  </mat-radio-button>
-  </mat-radio-group>
 
 
-  <mat-radio-group
-color="primary"
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="question10">
-  
-  <h2 id="example-radio-group-labels">10. Do you live an active lifestyle?  </h2>
-  
-  <mat-radio-button  class="example-radio-button" *ngFor="let lifestyle of lifestyle" [value]="lifestyle">
-    {{lifestyle}}
-  </mat-radio-button>
-  </mat-radio-group>
+    <div class="form-group">
+      <h2 for="question6">6. Where will I find you after 9pm?  </h2>
+      <div *ngFor="let question6 of question6">
+        <input id="question6-{{question6.id}}" type="radio" value="{{question6.value}}" name="{{question6.name}}"
+          formControlName="{{question6.name}}">
+        <label for="question6-{{question6.id}}">{{question6.label}}</label>
+      </div>
+
+      
+    </div>
+
+
+
+
+    <div class="form-group">
+      <h2 for="question7">7. If a friend asks you to play/watch sports with them, how would you answer?</h2>
+      <div *ngFor="let question7 of question7">
+        <input id="question7-{{question7.id}}" type="radio" value="{{question7.value}}" name="{{question7.name}}"
+          formControlName="{{question7.name}}">
+        <label for="question7-{{question7.id}}">{{question7.label}}</label>
+      </div>
+
+      
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <h2 for="question8">8. If you are offered a long island iced tea, what would you do?  </h2>
+      <div *ngFor="let question8 of question8">
+        <input id="question8-{{question8.id}}" type="radio" value="{{question8.value}}" name="{{question8.name}}"
+          formControlName="{{question8.name}}">
+        <label for="question8-{{question8.id}}">{{question8.label}}</label>
+      </div>
+
+      
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <h2 for="question9">9. What feelings does the smell of coffee invoke for you?   </h2>
+      <div *ngFor="let question9 of question9">
+        <input id="question9-{{question9.id}}" type="radio" value="{{question9.value}}" name="{{question9.name}}"
+          formControlName="{{question9.name}}">
+        <label for="question9-{{question9.id}}">{{question9.label}}</label>
+      </div>
+
+      
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <h2 for="question10">10. Do you live an active lifestyle?  </h2>
+      <div *ngFor="let question10 of question10">
+        <input id="question10-{{question10.id}}" type="radio" value="{{question10.value}}" name="{{question10.name}}"
+          formControlName="{{question10.name}}">
+        <label for="question10-{{question10.id}}">{{question10.label}}</label>
+      </div>
+
+      
+    </div>
+
+    <button class="btn btn-primary" type="submit" >Submit</button>
+
+    <h5>Answers: {{myform.value | json}}</h5>
+  </form>
+</div>
+
 
   
-  <button color="primary">Submit</button>
+
+  
     

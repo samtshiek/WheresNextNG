@@ -1,33 +1,35 @@
 <mat-toolbar color="primary">
     <span>Where'sNext! </span>
     <br/>
-    <!-- <h4>{{currentUser}}</h4><br/> -->
 
     
     <div class="toolbar-menu">
         <a mat-button routerLink="/">Home</a>
+        <div *ngIf="loggedIn">
         <a mat-button routerLink="/Profile">Profile</a>
         <a mat-button routerLink="/Favorites">Favorites</a>
         <a mat-button routerLink="/Feedback">Feedback</a>
-        <!-- <a mat-button routerLink="/Login">Login</a> -->
+        <a mat-button routerLink="/Places">Places</a>
+        <a mat-button routerLink="/Quiz">Quiz</a>
+        </div>
       </div>
   
   
   </mat-toolbar>
 <br/>
 <br/>
-
+<div *ngIf="!loggedIn">
    <app-login></app-login> 
-<a routerLink = "/Quiz">Quiz </a>
-   
-  
+  </div>
+  <div *ngIf="loggedIn">
+    <h2>You are logged in.  {{currentUser}}</h2>
+
+    <button (click)="logout()">Log Out</button>
+  </div> 
   
   
 
 <router-outlet></router-outlet>
-
-    
-<app-users></app-users>
 
 
 
