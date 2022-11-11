@@ -28,6 +28,13 @@ export class UserService {
     return this.http.post<User>('http://localhost:3000/users/create', newUser);
   }
 
+  getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
+
+    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
+    
+    return observable;
+  }
+
   getPlaces(): Observable<any> {
 
     let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
