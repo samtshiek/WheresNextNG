@@ -44,11 +44,13 @@ export class LoginComponent implements OnInit {
 
     this.userService.newUser(this.newUser)
    .subscribe(data => {
-    this.existingUser = data;
-    this.loggedIn = true;
+   // this.loggedIn = true;
+/* 
+    let userInfo =  JSON.parse(JSON.stringify(data));
+    this.existingUser = userInfo;
+    console.log("Userid: "+this.existingUser.id);
+    this.login(this.existingUser.username,this.existingUser.password); */
 
-    sessionStorage.setItem('ID:', this.existingUser.id );
-    sessionStorage.setItem('Name:', this.existingUser.username);
     window.location.href = '/';
 
     //return

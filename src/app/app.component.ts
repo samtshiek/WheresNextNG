@@ -70,7 +70,7 @@ questions = ["1. What do you like to watch on TV?",
 ngOnInit(): void {
   //QUIZ
   this.serveQuestions();
-
+  console.log("Userid :", sessionStorage.getItem("ID:"));
 
   this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
