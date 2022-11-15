@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,7 @@ export class ProfileComponent implements OnInit {
   loggedIn: boolean;
   message: string ="";
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private router: Router) { 
 
   }
 
@@ -35,11 +37,13 @@ export class ProfileComponent implements OnInit {
     if(  sessionStorage.getItem('ID:') == null ) {
       console.log('in init1 false');
       this.loggedIn = false;
+      this.router.navigate([`/`]);
     }
     else if(  sessionStorage.getItem('ID:').length < 5 )
     {
       console.log('in init2 false');
       this.loggedIn = false;
+      this.router.navigate([`/`]);
     }
     else {
       this.loggedIn = true;
