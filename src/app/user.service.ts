@@ -55,4 +55,9 @@ export class UserService {
     
     return observable;
   }
+  postResults(ansObject: any): Observable<any> {
+    console.log("test user service", ansObject);
+    return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);
+  }
+
 }
