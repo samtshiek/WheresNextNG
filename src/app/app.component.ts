@@ -12,6 +12,7 @@ export class AppComponent {
   currentUser: string = 'Please Log In';
   navLinks: any[];
   activeLinkIndex = -1;
+  uID: number = null;
 
 
 
@@ -80,6 +81,7 @@ ngOnInit(): void {
   }
     else if(sessionStorage.getItem('ID:').length > 5){
     this.loggedIn = true;
+    this.uID = Number(sessionStorage.getItem('ID:'));
     this.currentUser = 'Welcome ' + sessionStorage.getItem('Name:');
   } 
 

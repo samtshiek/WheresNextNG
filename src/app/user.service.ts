@@ -18,8 +18,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/users');
   }
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>('http://localhost:3000/user:/'+id);
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>('http://localhost:3000/users/'+id);
   }
 
   loginUser(newUser: loginUser): Observable<string> {  // usin a post as I want to pass the data in the body
@@ -30,8 +30,8 @@ export class UserService {
     return this.http.post<User>('http://localhost:3000/users/create', newUser);
   }
   
-  updateUser(user:User, id:number): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/users/update_user:/'+id,user);
+  updateUser(user:User): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/users/update_user/',user);
   }
 
   getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {

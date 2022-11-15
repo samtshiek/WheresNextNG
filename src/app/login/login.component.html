@@ -41,31 +41,7 @@
      <button (click)="CreateAccount(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Create Account</button> 
      </div>
 
-     <div *ngIf="edituser">
-      <h3>Edit Your Account Details</h3>
-       <label for="new-user">User Name: </label>
-       <input id="new-user" size="30" #userName /> 
-       <label for="new-pw">Password: </label>
-       <input id="new-pw" size="30" #pw />
-       <label for="new-firstname">First Name: </label>
-       <input id="new-firstname" size="30" #firstName />
-        <label for="new-lastname">Last Name: </label>
-       <input id="new-lastname" size="30" #lastName /> 
-        <label for="new-email">Email: </label>
-       <input id="new-email" size="30" #email /> 
-        <label for="new-age">Age : </label>
-       <input id="new-age" size="30" #age /> 
-        <label for="new-sex">Sex: </label>
-       <input id="new-sex" size="30" #sex /> 
-        <label for="new-City">City: </label>
-       <input id="new-city" size="30" #city /> 
-         <label for="new-State">State: </label>
-       <input id="new-state" size="30" #state />
-         <label for="new-Country">Country: </label>
-       <input id="new-country" size="30" #country /> 
 
-     <button (click)="editUser(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Create Account</button> 
-     </div>
       
       
   </div>
