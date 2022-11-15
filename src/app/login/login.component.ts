@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   user:loginUser;
   signup:boolean =false;
   loginbut:boolean = false;
+  edituser:boolean =false;
 
   signmeUp():void{
     this.signup =true;
