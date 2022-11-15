@@ -58,6 +58,39 @@ export class LoginComponent implements OnInit {
    
   }
 
+  editUser(pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {      //newuser does not have an _id
+    let userId= Number(sessionStorage.getItem("ID:"));
+    this.existingUser= {
+      username: pUserName,
+      password: pPw,
+      firstName: pFirstName,
+      lastName: pLastname,
+      age:pAge,
+      sex:pSex,
+      email:pEmail,
+      city:pCity,
+      state:pState,
+      country:pCountry,
+      id:sessionStorage.getItem("ID:")
+
+    }
+
+  this.userService.updateUser(this.existingUser,userId)
+ .subscribe(data => {
+ // this.loggedIn = true;
+/* 
+  let userInfo =  JSON.parse(JSON.stringify(data));
+  this.existingUser = userInfo;
+  console.log("Userid: "+this.existingUser.id);
+  this.login(this.existingUser.username,this.existingUser.password); */
+
+  window.location.href = '/';
+
+  //return
+ })
+ 
+}
+
   login (pUserName:string, pPw:string,): void {
     const message = document.getElementById("loginmessage");
 

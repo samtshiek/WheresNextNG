@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NewUser, loginUser } from './user';
+import { NewUser, loginUser} from './user';
+
+
 
 
 @Injectable({
@@ -26,6 +28,10 @@ export class UserService {
 
   newUser(newUser: NewUser): Observable<User> {
     return this.http.post<User>('http://localhost:3000/users/create', newUser);
+  }
+  
+  updateUser(user:User, id:number): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/users/update_user:/'+id,user);
   }
 
   getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
