@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
@@ -11,5 +12,13 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  formatLabel(value: number) {
+    if (value >= 5) {
+      
+    }
 
+    return value;
+  }
 }
+
+

@@ -1,13 +1,18 @@
+button{
+    background-color: #c20f68;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    
+}
+p{
+    font-size: 15px;
+    font-weight: bold;
+    
+    margin-left: 10px;
+}
 
-  button{
-    margin-left: 2rem;
-    color: brown;
-  }
 
-   .form-group{
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-    align-items: flex-start;
-    background-color: whitesmoke;
-   } 

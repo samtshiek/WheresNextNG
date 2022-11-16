@@ -15,6 +15,7 @@ export class QuizComponent {
   currentUser: string = 'Please Log In';
   navLinks: any[];
   activeLinkIndex = -1;
+  message: string ="";
   i: number = 0;
   values = ['a', 'b', 'c', 'd'];
   answers = [["a. Action", "b. Drama", "c. Comedy", "d. I have way better things to do! "],
@@ -26,7 +27,9 @@ export class QuizComponent {
 ["a. I’d be so down, I love sports", "b. I’d be interested", "c. I’d have to think about it", "d. I’d tell them hell would freeze over before I’m found participating or watching sports"],
 ["a. What is that?? ", "b. Ask for three", "c. Politely decline but have a beer", "d. Say no, I don’t like drinking"],
 ["a. It reminds me of the amazing cafes I visited in Italy. Love a great coffee.", "b. I feel happy, I need coffee to wake up in the morning.", "c. Coffee is ok, I guess.", "d. I am repulsed. I can’t stand coffee."],
-["a. Yes, you will find me at the gym most days", "b. Yes, I love to get outdoors and hike or mountain bike.", "c.  I exercise sometimes if I make myself", "d. My version of active is using the remote while sitting on the couch."]];
+["a. Yes, you will find me at the gym most days", "b. Yes, I love to get outdoors and hike or mountain bike.", "c.  I exercise sometimes if I make myself", "d. My version of active is using the remote while sitting on the couch."],
+["a. I’d love to, I take any opportunity to be around art", "b. I will be there, I’d like to see some of the paintings", "c. I will go, I like support you in what you do", "d. No thanks, it is not my scene."],
+["a. Movie Theatre", "b. Local restaurant", "c. A park nearby", "d. My favorite cafe"],];
 
 questions = ["1. What do you like to watch on TV?",
 "2. How do you feel about eating out?",
@@ -37,7 +40,10 @@ questions = ["1. What do you like to watch on TV?",
 "7. If a friend asks you to play/watch sports with them, how would you answer?",
 "8. If you are offered a long island iced tea, what would you do?",
 "9. What feelings does the smell of coffee invoke for you?",
-"10. Do you live an active lifestyle?"];
+"10. Do you live an active lifestyle?",
+"11. A friend is opening an art gallery, and would like you to attend the opening. What do you say? ",
+"12. You are asked by a group of friends to suggest somewhere to meet up. What is your top pick? ",
+];
 
   previousElement: HTMLInputElement = document.createElement("input");
   
@@ -56,7 +62,7 @@ questions = ["1. What do you like to watch on TV?",
     this.previousElement.setAttribute("type", "radio");
     let classThis = this
   
-    if(this.i < 10 && this.isAnySelected) {
+    if(this.i < 12 && this.isAnySelected) {
   
       this.isAnySelected = false;
   
@@ -105,7 +111,7 @@ questions = ["1. What do you like to watch on TV?",
       }
   
       else {
-          if (this.selectedAnswer != undefined && this.i <= 10) {
+          if (this.selectedAnswer != undefined && this.i <= 12) {
             this.results.push(this.selectedAnswer);
             this.i++; 
           }
@@ -127,14 +133,17 @@ questions = ["1. What do you like to watch on TV?",
 
     this.userService.postResults(ansObject).subscribe((data) => {
       console.log(data);
-      
-      //window.location.href = "/Places";
-
+      this.message ="Your answers has been sucessfully submitted";
+      // after 10 seconds, redirect to places page
+      setTimeout(() => {
+        window.location.href = "/Places";
+      }, 2000);
     });
   }
-
-  
 }
 
+      
+      //window.location.href = "/Places" ;
 
+  
 

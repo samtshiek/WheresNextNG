@@ -21,10 +21,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {LoginComponent } from './login/login.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { PlacesComponent } from './places/places.component';
-
-
-
-
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,9 @@ import { PlacesComponent } from './places/places.component';
     MatIconModule,
     MatTabsModule,
     MatRadioModule,
-    
+    MatInputModule,
+    MatCardModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
