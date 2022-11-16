@@ -1,1 +1,29 @@
-<h2>profile works!</h2>
+<h2>Edit Your Profile</h2>
+<div>
+    <h3>Edit Your Account Details</h3>
+     <label for="new-user">User Name: </label>
+     <input id="new-user" value="{{existingUser.username}}" size="30" #userName /> 
+     <label for="new-pw">Password: </label>
+     <input id="new-pw"  value="type your password here" size="30" #pw />
+     <label for="new-firstname">First Name: </label>
+     <input id="new-firstname" value="{{existingUser.firstName}}" size="30" #firstName />
+      <label for="new-lastname">Last Name: </label>
+     <input id="new-lastname"  value="{{existingUser.lastName}}" size="30" #lastName /> 
+      <label for="new-email">Email: </label>
+     <input id="new-email" value="{{existingUser.email}}" size="30" #email /> 
+      <label for="new-age">Age : </label>
+     <input id="new-age" value="{{existingUser.age}}" size="30" #age /> 
+      <label for="new-sex">Sex: </label>
+     <input id="new-sex" value="{{existingUser.sex}}" size="30" #sex /> 
+      <label for="new-City">City: </label>
+     <input id="new-city" value="{{existingUser.city}}" size="30" #city /> 
+       <label for="new-State">State: </label>
+     <input id="new-state" value="{{existingUser.state}}" size="30" #state />
+       <label for="new-Country">Country: </label>
+     <input id="new-country" value="{{existingUser.country}}" size="30" #country /> 
+
+   <button (click)="editUser(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Edit Details</button> 
+   <div id="message"><h1>{{message}}</h1></div>
+</div>
+
+ 

@@ -1,4 +1,18 @@
-<div class="container">
+<h2>Please take a few moment to answer few questions to get to know you better.</h2>
+
+ <p id="p"></p>
+ <br>
+ <button (click)="serveQuestions()">Next</button>
+  <br>
+  <button (click)="postResults()">Submit</button>
+
+  <div id="message"><h1>{{message}}</h1></div>
+
+
+
+
+
+<!-- <div class="container">
   <h1>Please take a few moment to answer few questions to get to know you better.</h1>
 
   <form [formGroup]="myform" (ngSubmit)="submit()">
@@ -141,7 +155,7 @@
 
     <h5>Answers: {{myform.value | json}}</h5>
   </form>
-</div>
+</div> -->
 
 
   

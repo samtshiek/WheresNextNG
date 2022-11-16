@@ -9,7 +9,7 @@
       <h3>Existing User Login</h3>
       <label for="newExUser">User Name: </label>
       <input id="newExUser" size="30" #newExUser /> 
-      <label for="newExpw">PW: </label>
+      <label for="newExpw">Password: </label>
       <input id="newExpw" size="30" #newExpw />
       <button (click)="login(newExUser.value, newExpw.value)">Log In</button>
       <label id="loginmessage"></label>
@@ -40,6 +40,8 @@
 
      <button (click)="CreateAccount(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Create Account</button> 
      </div>
+
+
       
       
   </div>

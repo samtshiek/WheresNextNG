@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NewUser, loginUser } from './user';
+import { NewUser, loginUser} from './user';
+
+
 
 
 @Injectable({
@@ -16,8 +18,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:3000/users');
   }
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>('http://localhost:3000/user:/'+id);
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>('http://localhost:3000/users/'+id);
   }
 
   loginUser(newUser: loginUser): Observable<string> {  // usin a post as I want to pass the data in the body
@@ -26,6 +28,17 @@ export class UserService {
 
   newUser(newUser: NewUser): Observable<User> {
     return this.http.post<User>('http://localhost:3000/users/create', newUser);
+  }
+  
+  updateUser(user:User): Observable<User> {
+    return this.http.post<User>('http://localhost:3000/users/update_user/',user);
+  }
+
+  getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
+
+    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
+    
+    return observable;
   }
 
   getPlaces(): Observable<any> {
@@ -42,4 +55,9 @@ export class UserService {
     
     return observable;
   }
+  postResults(ansObject: any): Observable<any> {
+    console.log("test user service", ansObject);
+    return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);
+  }
+
 }

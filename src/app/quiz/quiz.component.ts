@@ -9,96 +9,141 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
-export class QuizComponent {
-  loggedIn: boolean;
-  newUser: NewUser;
+export class QuizComponent { 
   existingUser: User;
-  user:loginUser;
-  
-  question1 = [
-    {a1:7, name:'question1', value:'Action', label:'Action'},
-    {id:2, name:'question1', value:'Drama', label:'Drama'},
-    {id:3, name:'question1', value:'Comedy', label:'Comedy'},
-    {id:4, name:'question1', value:'I have way better things to do', label:'I have way better things to do'}
-  ]
-  
-  question2 = [
-    {id:1, name:'question2', value:'I am a foodie. I love trying new restaurants', label:'I am a foodie. I love trying new restaurants'},
-    {id:2, name:'question2', value:'I like it, it can be enjoyable', label:'I like it, it can be enjoyable'},
-    {id:3, name:'question2', value:'I do it sometimes, but I prefer to cook at home', label:'I do it sometimes, but I prefer to cook at home'},
-    {id:4, name:'question3', value:'I do not go to restaurants', label:'I do not go to restaurants'}
-  ]
-  question3 = [
-    {id:1, name:'question3', value:'Yes, they are hilarious!', label:'Yes, they are hilarious!'},
-    {id:2, name:'question3', value:'A little bit ', label:'A little bit'},
-    {id:3, name:'question3', value:'No, they are not funny', label:'No, they are not funny'},
-    {id:4, name:'question3', value:'No, I run away, clowns are terrifying! ', label:'No, I run away, clowns are terrifying! '}
-  ]
-  question4 = [
-    {id:1, name:'question4', value:'I feel deeply moved', label:'I feel deeply moved'},
-    {id:2, name:'question4', value:'I enjoy the experience', label:'I enjoy the experience'},
-    {id:3, name:'question4', value:'I am indifferent', label:'I am indifferent'},
-    {id:4, name:'question4', value:'I don’t understand why anyone wants to look at art', label:'I don’t understand why anyone wants to look at art'}
-  ]
-  question5 = [
-    {id:1, name:'question5', value:'When? I have all my camping gear in the back of my truck! ', label:'When? I have all my camping gear in the back of my truck! '},
-    {id:2, name:'question5', value:'A hike sounds amazing', label:'A hike sounds amazing'},
-    {id:3, name:'question5', value:'I could be talked into it', label:'I could be talked into it'},
-    {id:4, name:'question5', value:'No way, I am much safer indoors', label:'No way, I am much safer indoors'}
-  ]
-  question6 = [
-    {id:1, name:'question6', value:'I will be at the night club', label:'I will be at the night club'},
-    {id:2, name:'question6', value:'Still having dinner with my friends', label:'Still having dinner with my friends'},
-    {id:3, name:'question6', value:'Tucked up in bed, I have work tomorrow', label:'Tucked up in bed, I have work tomorrow'},
-    {id:4, name:'question6', value:'None of your business!', label:'None of your business!'}
-  ]
-  question7 = [
-    {id:1, name:'question7', value:'I’d be so down, I love sports', label:'I’d be so down, I love sports'},
-    {id:2, name:'question7', value:'I’d be interested', label:'I’d be interested'},
-    {id:3, name:'question7', value:'I’d have to think about it', label:'I’d have to think about it'},
-    {id:4, name:'question7', value:'I’d tell them hell would freeze over before I’m found participating or watching sports', label:'I’d tell them hell would freeze over before I’m found participating or watching sports'}
-  ]
-  question8 = [
-    {id:1, name:'question8', value:'What is that??', label:'What is that??'},
-    {id:2, name:'question8', value:'Ask for three', label:'Ask for three'},
-    {id:3, name:'question8', value:'Politely decline but have a beer', label:'Politely decline but have a beer'},
-    {id:4, name:'question8', value:'Say no, I don’t like drinking', label:'Say no, I don’t like drinking'}
-  ]
-  question9 = [
-    {id:1, name:'question9', value:'It reminds me of the amazing cafes I visited in Italy. Love a great coffee. ', label:'It reminds me of the amazing cafes I visited in Italy. Love a great coffee. '},
-    {id:2, name:'question9', value:'I feel happy, I need coffee to wake up in the morning', label:'I feel happy, I need coffee to wake up in the morning'},
-    {id:3, name:'question9', value:'Coffee is ok, I guess', label:'Coffee is ok, I guess'},
-    {id:4, name:'question9', value:'I am repulsed. I can’t stand coffee', label:'I am repulsed. I can’t stand coffee'}
-  ]
-  question10 = [
-    {id:1, name:'question10', value:'Yes, you will find me at the gym most days', label:'Yes, you will find me at the gym most days'},
-    {id:2, name:'question10', value:'Yes, I love to get outdoors and hike or mountain bike.', label:'Yes, I love to get outdoors and hike or mountain bike.'},
-    {id:3, name:'question10', value:'I exercise sometimes if I make myself ', label:'I exercise sometimes if I make myself '},
-    {id:4, name:'question10', value:'My version of active is using the remote while sitting on the couch', label:'My version of active is using the remote while sitting on the couch'}
-  ]
+  loggedIn: boolean = false;
+  currentUser: string = 'Please Log In';
+  navLinks: any[];
+  activeLinkIndex = -1;
+  message: string ="";
+  i: number = 0;
+  values = ['a', 'b', 'c', 'd'];
+  answers = [["a. Action", "b. Drama", "c. Comedy", "d. I have way better things to do! "],
+["a. I am a foodie. I love trying new restaurants", "b. I like it, it can be enjoyable", "c. I do it sometimes, but I prefer to cook at home", "d. I do not go to restaurants"],
+["a. Yes, they are hilarious!", "b. A little bit", "c.  No, they are not funny", "d. No, I run away, clowns are terrifying!"],
+["a. I feel deeply moved", "b. I enjoy the experience", "c. I am indifferent", "d. I don’t understand why anyone wants to look at art"],
+["a. When? I have all my camping gear in the back of my truck!", "b. A hike sounds amazing", "c. I could be talked into it", "d. No way, I am much safer indoors"],
+["a. I will be at the night club", "b. Still having dinner with my friends", "c. Tucked up in bed, I have work tomorrow", "d. None of your business!"],
+["a. I’d be so down, I love sports", "b. I’d be interested", "c. I’d have to think about it", "d. I’d tell them hell would freeze over before I’m found participating or watching sports"],
+["a. What is that?? ", "b. Ask for three", "c. Politely decline but have a beer", "d. Say no, I don’t like drinking"],
+["a. It reminds me of the amazing cafes I visited in Italy. Love a great coffee.", "b. I feel happy, I need coffee to wake up in the morning.", "c. Coffee is ok, I guess.", "d. I am repulsed. I can’t stand coffee."],
+["a. Yes, you will find me at the gym most days", "b. Yes, I love to get outdoors and hike or mountain bike.", "c.  I exercise sometimes if I make myself", "d. My version of active is using the remote while sitting on the couch."],
+["a. I’d love to, I take any opportunity to be around art", "b. I will be there, I’d like to see some of the paintings", "c. I will go, I like support you in what you do", "d. No thanks, it is not my scene."],
+["a. Movie Theatre", "b. Local restaurant", "c. A park nearby", "d. My favorite cafe"],];
 
+questions = ["1. What do you like to watch on TV?",
+"2. How do you feel about eating out?",
+"3. Do you laugh when you see a clown? ",
+"4. How do you feel when you view a beautiful sculpture?",
+"5. If someone asked you to go out in nature, what would you respond?",
+"6. Where will I find you after 9pm?",
+"7. If a friend asks you to play/watch sports with them, how would you answer?",
+"8. If you are offered a long island iced tea, what would you do?",
+"9. What feelings does the smell of coffee invoke for you?",
+"10. Do you live an active lifestyle?",
+"11. A friend is opening an art gallery, and would like you to attend the opening. What do you say? ",
+"12. You are asked by a group of friends to suggest somewhere to meet up. What is your top pick? ",
+];
 
-  myform = new FormGroup({
-    question1: new FormControl(''),
-    question2: new FormControl(''),
-    question3: new FormControl(''),
-    question4: new FormControl(''),
-    question5: new FormControl(''),
-    question6: new FormControl(''),
-    question7: new FormControl(''),
-    question8: new FormControl(''),
-    question9: new FormControl(''),
-    question10: new FormControl(''),
-  });
+  previousElement: HTMLInputElement = document.createElement("input");
+  
+  results = [];
+  selectedAnswer: any;
+  isAnySelected: boolean = true;
 
-  constructor(){}
+  ngOnInit(): void {
+    //QUIZ
+    this.serveQuestions();
+
+  }
+  constructor(private userService: UserService) { }
+     
+  serveQuestions() {
+    this.previousElement.setAttribute("type", "radio");
+    let classThis = this
   
+    if(this.i < 12 && this.isAnySelected) {
   
+      this.isAnySelected = false;
   
-  submit(){
-    console.log(this.myform.value);
+      let p = document.getElementById("p");
+      p.innerHTML ='';
+  
+      console.log("Question:" + (this.i+1));
+  
+      //i represents the question number
+      p.innerHTML = this.questions[this.i];
+  
+      //k represents the answer number from 'a' to 'd'. ('a' would be answer 1, 'd' would be answer 4)
+      for (let k = 0; k < 4; k++) {
+  
+        let la = document.createElement("label");
+        la.innerHTML = "<br>" + this.answers[this.i][k];
+        let r1 = document.createElement("input");
+        r1.setAttribute("type", "radio");
+        r1.setAttribute("value", this.values[k]);
+        r1.addEventListener("click", function() {
+        console.log("Selected value: " + this.value);
+        classThis.selectedAnswer = this.value + (classThis.i);
+        classThis.isAnySelected = true;
+  
+        
+      if (classThis.previousElement.checked) {
+          classThis.previousElement.checked = false;
+      }
+  
+      if (!this.checked) {
+          this.checked = true;
+          
+      }
+      classThis.previousElement = this;
+    });
+    p.appendChild(la);
+    p.appendChild(r1);
+  }
+  this.i++; 
+      if (this.selectedAnswer != undefined) {
+        this.results.push(this.selectedAnswer); 
+      }
+  
+      console.log("Results: ", this.results);
+  
+      }
+  
+      else {
+          if (this.selectedAnswer != undefined && this.i <= 12) {
+            this.results.push(this.selectedAnswer);
+            this.i++; 
+          }
+          console.log("Results: ", this.results);
+      }
+  
+      this.selectedAnswer = undefined;
+  
+  }
+  // post results to node server on submit
+  postResults() {
+   
+    
+    let ID = sessionStorage.getItem('ID:');
+    let ansObject = {
+    id : ID, 
+    results : this.results
+    }
+
+    this.userService.postResults(ansObject).subscribe((data) => {
+      console.log(data);
+      this.message ="Your answers has been sucessfully submitted";
+      // after 10 seconds, redirect to places page
+      setTimeout(() => {
+        window.location.href = "/Places";
+      }, 2000);
+    });
   }
 }
 
+      
+      //window.location.href = "/Places" ;
 
+  
 
