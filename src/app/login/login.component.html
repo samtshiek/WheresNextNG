@@ -1,21 +1,113 @@
- 
+
+
 <div *ngIf="!loggedIn">
-    <h2>Please log in </h2>
-    <br><br>
-    <button (click)="logIn()">Log In</button>
-    <button (click)="signmeUp()">Sign Up</button>
+    <h2 class="plogin">Please log in or sign up</h2>
+    <br>
+    <button class="login" (click)="logIn()">Log In</button>
+    <button class="signup"(click)="signmeUp()">Sign Up</button>
     <div *ngIf="loginbut">
     <br><br>
-      <h3>Existing User Login</h3>
+      <!-- <h3>Existing User Login</h3>
       <label for="newExUser">User Name: </label>
       <input id="newExUser" size="30" #newExUser /> 
       <label for="newExpw">Password: </label>
       <input id="newExpw" size="30" #newExpw />
-      <button (click)="login(newExUser.value, newExpw.value)">Log In</button>
-      <label id="loginmessage"></label>
+      <button (click)="login(newExUser.value, newExpw.value)">Log In</button> -->
+      <!-- <label id="loginmessage"></label> -->
+
+      <div class="signin-content">
+        <mat-card>
+          <mat-card-content>
+            <form  >
+              <p>Please login to continue</p>
+              <mat-form-field class="full-width-input">
+                <mat-label>User Name:</mat-label>
+                <input matInput id="newExUser" #newExUser required>
+                
+              </mat-form-field>
+              <mat-form-field class="full-width-input">
+                <mat-label>Password:</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'"  id="newExpw" #newExpw  required>
+              
+               
+              </mat-form-field>
+              <button  (click)="login(newExUser.value, newExpw.value)">Login</button>
+              <br><br>
+              <label class="loginmessage" id="loginmessage"></label>
+
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
     </div>
 
-    <div *ngIf="signup">
+    <div class="signup-content" *ngIf="signup">
+      <mat-card>
+        <mat-card-content>
+          <form  >
+            <p>Please create an account</p>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>User Name:</mat-label>
+              <input matInput id="new-user" #userName required>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Password:</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" id="new-pw" #pw  required>     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>First Name:</mat-label>
+              <input matInput id="new-firstname" #firstName  required>     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Last Name:</mat-label>
+              <input matInput id="new-lastname" #lastName  required>     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Email:</mat-label>
+              <input matInput id="new-email" #email >     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Age:</mat-label>
+              <input matInput id="new-age" #age >     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Sex:</mat-label>
+              <input matInput id="new-sex" #sex >     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>City:</mat-label>
+              <input matInput id="new-city" #city >     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>State:</mat-label>
+              <input matInput id="new-state" #state >     
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+              <mat-label>Country:</mat-label>
+              <input matInput id="new-country" #country >     
+            </mat-form-field>
+
+            <button (click)="CreateAccount(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Create Account</button> 
+            <br><br>
+            <label class="loginmessage" id="loginmessage"></label>
+
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- <div *ngIf="signup">
       <h3>New User Create Account</h3>
        <label for="new-user">User Name: </label>
        <input id="new-user" size="30" #userName /> 
@@ -39,7 +131,7 @@
        <input id="new-country" size="30" #country /> 
 
      <button (click)="CreateAccount(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Create Account</button> 
-     </div>
+     </div> -->
 
 
       

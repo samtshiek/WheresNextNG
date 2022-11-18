@@ -11,8 +11,31 @@ button{
 mat-toolbar{
     background-color: #c20f68;
     color: white;
+    width: 100%;
 }
 .toolbar-menu{
     color: white;
+   
+    margin-left: 500px;
+
+
     
+}
+a{
+    font-size: 20px;
+}
+.logout{
+    color: white;
+    margin-left: 670px;
+    size: 100px;
+}
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: -30px;
+    margin-right: -15px;
+}
+mat-coursel-slide .image{
+    width: 1920px;
+    height: 480px;
 }

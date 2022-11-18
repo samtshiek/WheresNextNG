@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { loginUser, User } from '../user';
 import { NewUser } from '../user';
 import { UserService } from '../user.service';
@@ -6,7 +6,8 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+ 
 })
 
 export class LoginComponent implements OnInit {
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   signup:boolean =false;
   loginbut:boolean = false;
   edituser:boolean =false;
+  hide = true;
 
   signmeUp():void{
     this.signup =true;
@@ -29,7 +31,8 @@ export class LoginComponent implements OnInit {
   
   
   CreateAccount(pUserName:string, pPw:string, pEmail:string, pFirstName:string, pLastname:string, pAge:string,pSex:string,pCity:string,pState:string, pCountry:string): void {      //newuser does not have an _id
-      this.newUser = {
+    const message = document.getElementById("loginmessage");  
+    this.newUser = {
         username: pUserName,
         password: pPw,
         firstName: pFirstName,
@@ -53,6 +56,9 @@ export class LoginComponent implements OnInit {
     this.login(this.existingUser.username,this.existingUser.password); */
 
     window.location.href = '/';
+  },(err) => {
+    console.log("Error with signup");
+    message.innerHTML="Error: Please complete required fields!"
 
     //return
    })

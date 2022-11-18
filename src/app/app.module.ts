@@ -24,6 +24,7 @@ import { PlacesComponent } from './places/places.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatInputModule,
     MatCardModule,
     MatSliderModule,
+    MatCarouselModule.forRoot()
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
