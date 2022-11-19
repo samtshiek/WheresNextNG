@@ -46,7 +46,11 @@ export class AppComponent {
             label: 'Places',
             link: './Places',
             index: 3
-        },
+        },  {
+          label: 'Search Place',
+          link: './Search-Place',
+          index: 4
+      },
     ];
     
 }

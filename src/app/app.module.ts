@@ -25,6 +25,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { SearchPlaceComponent } from './search-place/search-place.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     FeedbackComponent,
     QuizComponent,
     PlacesComponent,
+    SearchPlaceComponent,
   ],
   imports: [
     BrowserModule,
