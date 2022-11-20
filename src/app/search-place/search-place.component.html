@@ -1,13 +1,17 @@
 
-<label>Location</label>
-<input id="Address" type="text" [(ngModel)]="Address">
-<label>Type</label>
-<input id="Type" type="text" [(ngModel)]="Type">
-<label>Keyword</label>
-<input id="Keyword" type="text" [(ngModel)]="Keyword">
-<label>Radius</label>
-<input id="Radius" type="text" [(ngModel)]="Radius">
-<button type="button" (click)="advancedPlaceSearch()">Search Place</button>
+<div id="SearchDiv">
+  <label>Location    </label>
+  <input id="Address" type="text" [(ngModel)]="Address">(city/address etc..)
+  <br>
+  <label>Keyword    </label>
+  <input id="Keyword" type="text" [(ngModel)]="Keyword">
+  <br>
+  <label>Radius    </label>
+  <input id="Radius" type="text" [(ngModel)]="Radius">(meters)
+  <br>
+  <button type="button" (click)="advancedPlaceSearch()">Search Place</button>
+  <br>
+</div>
 
 <div id="res"></div>
 <h2 *ngIf="displayed" >My Places</h2>

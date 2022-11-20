@@ -41,6 +41,13 @@ export class UserService {
 
   }
 
+  getPlacesNode(searchObject: any): Observable<any> {
+    let observable = this.http.post<any>('http://localhost:3000/users/get-places', searchObject);
+    console.log("Node place result: ", observable);
+
+    return observable;
+  }
+
   getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
 
     let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
@@ -62,6 +69,7 @@ export class UserService {
     
     return observable;
   }
+
   postResults(ansObject: any): Observable<any> {
     console.log("test user service", ansObject);
     return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);

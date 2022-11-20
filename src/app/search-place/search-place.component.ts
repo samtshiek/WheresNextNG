@@ -13,7 +13,7 @@ export class SearchPlaceComponent implements OnInit {
   Type: string = '';
   Keyword: string = '';
   Radius: string = '';
-  places: [] = [];
+  places: any[];
   geocode!: any[];
   lat?: string = '';
   long?: string = '';
@@ -31,7 +31,29 @@ export class SearchPlaceComponent implements OnInit {
 
     if(this.Address != null && this.Address.length !=0) {
 
-      this.userService.getLongLat(this.Address).subscribe(jsonObject => {
+      let paramObject = {
+        address: this.Address,
+        keyword: this.Keyword,
+        radius: this.Radius
+      }
+
+      console.log("Object to send: ", paramObject);
+
+      //geoPlacesJsonObject carries two fields (places object and geo object). geo object carries geolocation call data, while places carries places call results 
+      this.userService.getPlacesNode(paramObject).subscribe(geoPlacesJsonObject => {
+        console.log("Place result node angular: ", geoPlacesJsonObject);
+        this.places = geoPlacesJsonObject.places.results;
+        if (this.places.length == 0) {
+          this.FormattedAddress = "No result has been found for this area.";
+        }
+        else {
+          this.displayed = true;
+          this.FormattedAddress = "Results for area surrounding: " + geoPlacesJsonObject.geo.results[0].formatted_address;
+        }
+      });
+
+      //FRONT END PLACES CALL
+     /* this.userService.getLongLat(this.Address).subscribe(jsonObject => {
         this.geocode = jsonObject.results;
         console.log("Geolocation result: ", this.geocode);
        
@@ -54,7 +76,7 @@ export class SearchPlaceComponent implements OnInit {
   
           //console.log("Observable resolved: " + JSON.stringify(places));
       });
-      });
+      });*/
 
     }
   }
