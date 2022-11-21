@@ -34,7 +34,8 @@ export class SearchPlaceComponent implements OnInit {
       let paramObject = {
         address: this.Address,
         keyword: this.Keyword,
-        radius: this.Radius
+        radius: this.Radius,
+        userId: sessionStorage.getItem("ID:")
       }
 
       console.log("Object to send: ", paramObject);

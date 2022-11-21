@@ -19,6 +19,6 @@
 <ul class="places">
   <li *ngFor="let place of places">
       <span class="badge">{{place.name}} </span>
-      <span class="name">{{place.rating}}</span>
+      <span class="name">{{place.matchScore * 10}}%</span>
   </li>
 </ul>
