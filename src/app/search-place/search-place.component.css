@@ -1,5 +1,30 @@
 
-#SearchDiv {
-    margin-top: 5%;
-    margin-left: 40%;
+
+
+button{
+    background-color: #c20f68;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    
 }
+mat-card {
+    max-width: 600px;
+   background-color: grey;
+   
+    text-align: center;
+    size: large;
+  }
+ 
+  .full-width-input {
+    width: 100%;
+  }
+  p{
+    color: white;
+  }
+   
+
+ 
