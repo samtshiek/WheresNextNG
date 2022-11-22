@@ -83,4 +83,8 @@ export class UserService {
     return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);
   }
 
+  // addToFavorites(place: any): Observable<any> {
+  //   return this.http.post<any>('http://localhost:3000/users/add-favourite', {place: place});
+  // }
+
 }

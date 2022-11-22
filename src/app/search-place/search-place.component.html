@@ -1,18 +1,31 @@
 
 <div id="SearchDiv">
-  <label>Location    </label>
-  <input id="Address" type="text" [(ngModel)]="Address">(city/address etc..)
-  <br>
-  <label>Keyword    </label>
-  <input id="Keyword" type="text" [(ngModel)]="Keyword">
-  <br>
-  <label>Radius    </label>
-  <input id="Radius" type="text" [(ngModel)]="Radius">(meters)
-  <br>
-  <button type="button" (click)="advancedPlaceSearch()">Search Place</button>
-  <br>
+  <mat-card>
+    <mat-card-content>
+      <form  >
+        <p>Search for a place</p>
+        <mat-form-field >
+          <mat-label>Address: (city,state)</mat-label>
+          <input matInput id="Address" name="Address" [(ngModel)]="Address" >  
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Keyword:</mat-label>
+          <input matInput id="Keyword" name="Keyword"  [(ngModel)]="Keyword" >
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Radius: (meters)</mat-label>
+          <input matInput id="Radius" name="Radius"  [(ngModel)]="Radius" >
+        </mat-form-field>
+
+        <button  (click)="advancedPlaceSearch()">Search Place</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
 
+<br>
 <div id="res"></div>
 <h2 *ngIf="displayed" >My Places</h2>
 <h4>{{FormattedAddress}}</h4>
@@ -22,4 +35,3 @@
       <span class="name">{{place.matchScore * 10}}%</span>
   </li>
 </ul>
-

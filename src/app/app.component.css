@@ -16,17 +16,17 @@ mat-toolbar{
 .toolbar-menu{
     color: white;
    
-    margin-left: 500px;
+    margin-left: 20px;
 
 
     
 }
 a{
-    font-size: 20px;
+    font-size: 18px;
 }
 .logout{
     color: white;
-    margin-left: 670px;
+    
     size: 100px;
 }
 img{

@@ -50,5 +50,13 @@ export class PlacesComponent implements OnInit {
   onSelectPlace(place: any): void {
     this.selectedPlace = place;
   }
+  // add to favorites for selected place and send to favorites component
+  // addToFavorites(place: any): void {
+  //   this.selectedPlace = place;
+  //   this.userService.addToFavorites(place);
+    
+  // }
+
+  
 
 }
