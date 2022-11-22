@@ -57,9 +57,13 @@ export class LoginComponent implements OnInit {
 
     window.location.href = '/';
   },(err) => {
-    console.log("Error with signup");
-    message.innerHTML="Error: Please complete required fields!"
-
+    console.log("error",err);
+    console.log("error text = ",err.error.message);
+    if(err.error.status = 400){
+      message.innerHTML="Error: A user with this username already exists!"
+    }else{
+      message.innerHTML="Error: Please complete required fields!"
+    }
     //return
    })
    

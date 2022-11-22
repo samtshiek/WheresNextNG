@@ -3,12 +3,8 @@
   <mat-card>
     <mat-card-content>
       <form  >
-        <p>Edit Your Account Details</p>
+        <p>Edit Account Details for User {{existingUser.username}}</p>
 
-        <mat-form-field class="full-width-input">
-          <mat-label>User Name:</mat-label>
-          <input matInput id="new-user" value="{{existingUser.username}}" #userName>
-        </mat-form-field>
 
         <mat-form-field class="full-width-input">
           <mat-label>New Password (leave blank to keep it the same):</mat-label>
@@ -55,7 +51,7 @@
           <input matInput id="new-country" value="{{existingUser.country}}" #country >     
         </mat-form-field>
 
-        <button (click)="editUser(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Edit Details</button> 
+        <button (click)="editUser(existingUser.username,pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Edit Details</button> 
         <br><br>
         <label class="loginmessage" id="message">{{message}}</label>
 
