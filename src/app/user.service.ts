@@ -49,8 +49,8 @@ export class UserService {
   }
 
   getPlace(placeId: string): Observable<any> {
-    console.log("going to:'http://localhost:3000/users/get-place/"+placeId);
-    return this.http.get<any>('http://localhost:3000/users/get-place/'+placeId);
+    console.log("going to:'http://localhost:3000/users/get-place/id/"+placeId);
+    return this.http.get<any>('http://localhost:3000/users/get-place/id/'+placeId);
   //  console.log("Node place result: ", observable);
 
    // return observable;
