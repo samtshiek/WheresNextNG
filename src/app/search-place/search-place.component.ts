@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from '../user.service';
 
+export interface PlaceTile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-search-place',
   templateUrl: './search-place.component.html',
   styleUrls: ['./search-place.component.css']
 })
+
+
+
 export class SearchPlaceComponent implements OnInit {
   Address: string = '';
   FormattedAddress: string = '';
@@ -24,6 +33,8 @@ export class SearchPlaceComponent implements OnInit {
   ngOnInit(): void {
   
   }
+
+  
 
   advancedPlaceSearch(): void {
   
@@ -53,8 +64,8 @@ export class SearchPlaceComponent implements OnInit {
         }
       });
 
-      //FRONT END PLACES CALL
-     /* this.userService.getLongLat(this.Address).subscribe(jsonObject => {
+      
+      this.userService.getLongLat(this.Address).subscribe(jsonObject => {
         this.geocode = jsonObject.results;
         console.log("Geolocation result: ", this.geocode);
        
@@ -77,7 +88,7 @@ export class SearchPlaceComponent implements OnInit {
   
           //console.log("Observable resolved: " + JSON.stringify(places));
       });
-      });*/
+      });
 
     }
   }

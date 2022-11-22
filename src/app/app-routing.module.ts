@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { QuizComponent } from './quiz/quiz.component';
 import {PlacesComponent} from './places/places.component';
 import {SearchPlaceComponent} from './search-place/search-place.component'
+import { PlaceDetailsComponent } from './place-details/place-details.component';
 
 const routes: Routes = [
   // { path: 'heroes', component: UsersComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'Feedback', component: FeedbackComponent },
   { path: 'Quiz', component: QuizComponent },
   { path: 'Places', component: PlacesComponent },
-  {path: 'Search-Place', component: SearchPlaceComponent}
+  {path: 'Search-Place', component: SearchPlaceComponent},
+  {path: 'Place-Details/:id', component: PlaceDetailsComponent}
 ];
 
 @NgModule({

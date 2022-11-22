@@ -48,6 +48,14 @@ export class UserService {
     return observable;
   }
 
+  getPlace(placeId: string): Observable<any> {
+    console.log("going to:'http://localhost:3000/users/get-place/"+placeId);
+    return this.http.get<any>('http://localhost:3000/users/get-place/'+placeId);
+  //  console.log("Node place result: ", observable);
+
+   // return observable;
+  }
+
   getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
 
     let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');

@@ -26,6 +26,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { SearchPlaceComponent } from './search-place/search-place.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { PlaceDetailsComponent } from './place-details/place-details.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { SearchPlaceComponent } from './search-place/search-place.component';
     QuizComponent,
     PlacesComponent,
     SearchPlaceComponent,
+    PlaceDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { SearchPlaceComponent } from './search-place/search-place.component';
     MatInputModule,
     MatCardModule,
     MatSliderModule,
+    MatGridListModule,
     MatCarouselModule.forRoot()
    
   ],
