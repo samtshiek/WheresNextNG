@@ -28,6 +28,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { SearchPlaceComponent } from './search-place/search-place.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
+import {Router} from '@angular/router';
 
 @NgModule({
   declarations: [
