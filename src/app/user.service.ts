@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable, of } from 'rxjs';
+import { observable, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NewUser, loginUser} from './user';
 
@@ -75,6 +75,13 @@ export class UserService {
 
   //  console.log("The promise: " + promise);
     
+    return observable;
+  }
+
+  getImage(imgref:string): Observable<any> {
+
+    let observable = this.http.get<any>('https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference='+imgref+'&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8');
+
     return observable;
   }
 

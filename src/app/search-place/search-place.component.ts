@@ -86,7 +86,7 @@ export class SearchPlaceComponent implements OnInit {
           this.displayed = true;
           console.log("Places result: ", places);
   
-          //console.log("Observable resolved: " + JSON.stringify(places));
+          console.log("Observable resolved: " + JSON.stringify(places));
       });
       });
 

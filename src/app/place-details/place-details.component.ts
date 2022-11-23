@@ -21,7 +21,7 @@ export class PlaceDetailsComponent implements OnInit {
 
     this.userService.getPlace(this.id).subscribe(place => {
       this.place = place.results;
-
+     // this.userService.getImage
     
       console.log("Observable Object: ", place);
       console.log("Observable resolved: " + JSON.stringify(place));

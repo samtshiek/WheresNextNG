@@ -6,6 +6,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router'
 
 
 
+
 @Component({
   selector: 'app-places',
   templateUrl: './places.component.html',
@@ -16,6 +17,11 @@ export class PlacesComponent implements OnInit {
   places:[] = [];
   selectedPlace?;
   loggedIn: boolean;
+  Type: string = '';
+  Keyword: string = '';
+  Radius: string = '';
+  lat?: string = '';
+  long?: string = '';
 
 
 
@@ -39,8 +45,12 @@ export class PlacesComponent implements OnInit {
   }
 
   getPlaces(): void {
-    this.userService.getPlaces().subscribe(places => {
-      this.places = places.results;
+    this.long = "122.23";
+    this.lat=  "47.6";
+    this.Radius = "1000";
+
+    this.userService.getPlacesAdvanced(this.Keyword,this.lat,this.long,this.Radius,this.Type).subscribe(places => {
+      this.places = places.places.results;
 
     
       console.log("Observable Object: ", places);
