@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   existingUser: User;
   loggedIn: boolean;
   message: string ="";
+  hide=true;
 
   constructor(private userService: UserService, private router: Router) { 
 

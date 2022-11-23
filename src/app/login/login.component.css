@@ -9,3 +9,45 @@ button{
     margin: 4px 2px;
     
 }
+mat-card {
+    max-width: 600px;
+   background-color: grey;
+    margin: 2em auto;
+    text-align: center;
+    size: large;
+  }
+ 
+  .full-width-input {
+    width: 100%;
+  }
+  p{
+    color: white;
+  }
+   
+    
+   .login{
+    
+    margin-left: 850px;
+    
+   }
+   .loginmessage{
+   color: #c20f68;
+   
+   }
+  .plogin{
+  
+    margin-left: 860px;
+  }
+  input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+ 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable, of } from 'rxjs';
+import { observable, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NewUser, loginUser} from './user';
 
@@ -34,6 +34,28 @@ export class UserService {
     return this.http.post<User>('http://localhost:3000/users/update_user/',user);
   }
 
+  getLongLat(address: string): Observable<any> {
+    let observable = this.http.get<any>('https://maps.googleapis.com/maps/api/geocode/json?address='+ address + '&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8');
+
+    return observable;
+
+  }
+
+  getPlacesNode(searchObject: any): Observable<any> {
+    let observable = this.http.post<any>('http://localhost:3000/users/get-places', searchObject);
+    console.log("Node place result: ", observable);
+
+    return observable;
+  }
+
+  getPlace(placeId: string): Observable<any> {
+    console.log("going to:'http://localhost:3000/users/get-place/id/"+placeId);
+    return this.http.get<any>('http://localhost:3000/users/get-place/id/'+placeId);
+  //  console.log("Node place result: ", observable);
+
+   // return observable;
+  }
+
   getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
 
     let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
@@ -55,9 +77,21 @@ export class UserService {
     
     return observable;
   }
+
+  getImage(imgref:string): Observable<any> {
+
+    let observable = this.http.get<any>('https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference='+imgref+'&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8');
+
+    return observable;
+  }
+
   postResults(ansObject: any): Observable<any> {
     console.log("test user service", ansObject);
     return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);
   }
+
+  // addToFavorites(place: any): Observable<any> {
+  //   return this.http.post<any>('http://localhost:3000/users/add-favourite', {place: place});
+  // }
 
 }

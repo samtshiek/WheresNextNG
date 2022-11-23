@@ -1,6 +1,66 @@
-<h2>Edit Your Profile</h2>
+
 <div>
-    <h3>Edit Your Account Details</h3>
+  <mat-card>
+    <mat-card-content>
+      <form  >
+        <p>Edit Account Details for User {{existingUser.username}}</p>
+
+
+        <mat-form-field class="full-width-input">
+          <mat-label>New Password (leave blank to keep it the same):</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" id="new-pw"  #pw >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>First Name:</mat-label>
+          <input matInput id="new-firstname" value="{{existingUser.firstName}}" #firstName>     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>Last Name:</mat-label>
+          <input matInput id="new-lastname" value="{{existingUser.lastName}}" #lastName>     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>Email:</mat-label>
+          <input matInput id="new-email" value="{{existingUser.email}}" #email >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>Age:</mat-label>
+          <input matInput id="new-age" value="{{existingUser.age}}" #age >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>Sex:</mat-label>
+          <input matInput id="new-sex" value="{{existingUser.sex}}" #sex >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>City:</mat-label>
+          <input matInput id="new-city" value="{{existingUser.city}}" #city >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>State:</mat-label>
+          <input matInput id="new-state" value="{{existingUser.state}}" #state >     
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <mat-label>Country:</mat-label>
+          <input matInput id="new-country" value="{{existingUser.country}}" #country >     
+        </mat-form-field>
+
+        <button (click)="editUser(existingUser.username,pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Edit Details</button> 
+        <br><br>
+        <label class="loginmessage" id="message">{{message}}</label>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+
+    <!-- <h3>Edit Your Account Details</h3>
      <label for="new-user">User Name: </label>
      <input id="new-user" value="{{existingUser.username}}" size="30" #userName /> 
      <label for="new-pw">Password: </label>
@@ -23,7 +83,7 @@
      <input id="new-country" value="{{existingUser.country}}" size="30" #country /> 
 
    <button (click)="editUser(userName.value, pw.value, email.value, firstName.value, lastName.value, age.value, sex.value, city.value, state.value, country.value)">Edit Details</button> 
-   <div id="message"><h1>{{message}}</h1></div>
+   <div id="message"><h1>{{message}}</h1></div> -->
 </div>
 
  
