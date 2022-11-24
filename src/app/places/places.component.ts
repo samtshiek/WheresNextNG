@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import {Router} from '@angular/router';
-import { ActivatedRoute, ParamMap } from '@angular/router'
+import {Navigation} from '@angular/router';
 
 
 
@@ -19,6 +19,7 @@ export class PlacesComponent implements OnInit {
   loggedIn: boolean;
   Type: string = '';
   Keyword: string = '';
+  Address: string = '';
   Radius: string = '';
   lat?: string = '';
   long?: string = '';
@@ -27,12 +28,18 @@ export class PlacesComponent implements OnInit {
 
 
   
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {
+    let nav: Navigation = this.router.getCurrentNavigation();
+
+   if(nav.extras && nav.extras.state && nav.extras.state.geo) {
+      this.Address = nav.extras.state.geo.address;
+      this.Radius = nav.extras.state.geo.radius;
+
+      console.log("Geo from Nav: ", nav.extras.state.geo);
+    }
+   }
 
   ngOnInit(): void {
-
-    this.geoObject = this.userService.getGeo();
-    console.log("Got geo object from quiz: ", this.geoObject);
 
     if(  sessionStorage.getItem('ID:') == null ) {
       console.log('in init1 false');
@@ -52,7 +59,9 @@ export class PlacesComponent implements OnInit {
   getPlaces(): void {
     
     let paramObject = {
-      userId: sessionStorage.getItem("ID:")
+      userId: sessionStorage.getItem("ID:"),
+      address: this.Address,
+      radius: this.Radius
     }
 
     this.userService.getPlacesNode(paramObject).subscribe(geoPlacesObject => {

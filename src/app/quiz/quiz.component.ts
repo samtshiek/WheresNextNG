@@ -4,6 +4,7 @@ import { loginUser, User } from '../user';
 import { NewUser } from '../user';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -63,7 +64,7 @@ questions = ["1. What do you like to watch on TV?",
     this.serveQuestions();
 
   }
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
      
   serveQuestions() {
     this.previousElement.setAttribute("type", "radio");
@@ -135,7 +136,10 @@ questions = ["1. What do you like to watch on TV?",
     let ID = sessionStorage.getItem('ID:');
     let ansObject = {
     id : ID, 
-    results : this.results,
+    results : this.results
+    }
+
+    let geo = {
     address: this.Address,
     radius: this.Radius
     }
@@ -144,15 +148,19 @@ questions = ["1. What do you like to watch on TV?",
       console.log(data);
       this.message ="Your answers have been sucessfully submitted";
       
+      let route = '/Places'
       setTimeout(() => {
-        window.location.href = "/Places";
+        this.router.navigate([route], {state: {geo}});
       }, 2000);
+      /*setTimeout(() => {
+        window.location.href = "/Places";
+      }, 2000);*/
     });
   }
 }
 
       
-      //window.location.href = "/Places" ;
+
 
   
 
