@@ -22,6 +22,7 @@ export class PlacesComponent implements OnInit {
   Radius: string = '';
   lat?: string = '';
   long?: string = '';
+  geoObject: any;
 
 
 
@@ -29,6 +30,10 @@ export class PlacesComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.geoObject = this.userService.getGeo();
+    console.log("Got geo object from quiz: ", this.geoObject);
+
     if(  sessionStorage.getItem('ID:') == null ) {
       console.log('in init1 false');
       this.loggedIn = false;
@@ -45,16 +50,17 @@ export class PlacesComponent implements OnInit {
   }
 
   getPlaces(): void {
-    this.long = "122.23";
-    this.lat=  "47.6";
-    this.Radius = "1000";
+    
+    let paramObject = {
+      userId: sessionStorage.getItem("ID:")
+    }
 
-    this.userService.getPlacesAdvanced(this.Keyword,this.lat,this.long,this.Radius,this.Type).subscribe(places => {
-      this.places = places.places.results;
+    this.userService.getPlacesNode(paramObject).subscribe(geoPlacesObject => {
+      this.places = geoPlacesObject.places.results;
 
     
-      console.log("Observable Object: ", places);
-      console.log("Observable resolved: " + JSON.stringify(places));
+      console.log("Observable Object: ", this.places);
+      //console.log("Observable resolved: " + JSON.stringify(this.places));
   });
   }
 

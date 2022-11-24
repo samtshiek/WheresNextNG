@@ -55,6 +55,9 @@ questions = ["1. What do you like to watch on TV?",
   selectedAnswer: any;
   isAnySelected: boolean = true;
 
+  Address: string = '';
+  Radius: string = '';
+
   ngOnInit(): void {
     //QUIZ
     this.serveQuestions();
@@ -132,12 +135,14 @@ questions = ["1. What do you like to watch on TV?",
     let ID = sessionStorage.getItem('ID:');
     let ansObject = {
     id : ID, 
-    results : this.results
+    results : this.results,
+    address: this.Address,
+    radius: this.Radius
     }
 
     this.userService.postResults(ansObject).subscribe((data) => {
       console.log(data);
-      this.message ="Your answers has been sucessfully submitted";
+      this.message ="Your answers have been sucessfully submitted";
       
       setTimeout(() => {
         window.location.href = "/Places";

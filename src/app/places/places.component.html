@@ -16,10 +16,11 @@
         mat-card-avatar />
         </mat-card-header>
         <mat-card-subtitle>
-        <p style ="padding-left: 60px;"> {{place.vicinity}}</p> 
+        <p style ="padding-left: 60px;">{{place.vicinity}}</p> 
         </mat-card-subtitle>
-       <img mat-card-image width ="50" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference={{place.photo_reference}}&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8">
-     
+       <img mat-card-image width ="50" *ngFor="let photo of place.photos" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&photo_reference={{photo.photo_reference}}&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s">
+       <!-- <img mat-card-image width ="50" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference={{place.photo_reference}}&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8">
+      -->
         <mat-card-content>
           <p>
             Rating: {{place.rating}}

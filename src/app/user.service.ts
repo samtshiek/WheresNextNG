@@ -11,6 +11,9 @@ import { NewUser, loginUser} from './user';
   providedIn: 'root'
 })
 export class UserService {
+  
+  geoObject: any
+
   constructor(
     private http: HttpClient,
   ) { }
@@ -88,6 +91,14 @@ export class UserService {
   postResults(ansObject: any): Observable<any> {
     console.log("test user service", ansObject);
     return this.http.post<any>('http://localhost:3000/users/submit-quiz', ansObject);
+  }
+
+  setGeo(geoObject: any) {
+    this.geoObject = geoObject;
+  }
+
+  getGeo(): any {
+    return this.geoObject;
   }
 
   // addToFavorites(place: any): Observable<any> {
