@@ -24,6 +24,7 @@ export class PlacesComponent implements OnInit {
   lat?: string = '';
   long?: string = '';
   geoObject: any;
+  existingUser: any;
 
 
 
@@ -58,19 +59,45 @@ export class PlacesComponent implements OnInit {
 
   getPlaces(): void {
     
-    let paramObject = {
-      userId: sessionStorage.getItem("ID:"),
-      address: this.Address,
-      radius: this.Radius
-    }
+    let uid =(sessionStorage.getItem('ID:'));
 
-    this.userService.getPlacesNode(paramObject).subscribe(geoPlacesObject => {
-      this.places = geoPlacesObject.places.results;
+      //Get user object
+      this.userService.getUser(uid)
+          .subscribe(data => {
+          console.log("User data: ", data);
+        this.existingUser = data;
 
+      }, error => {}, () => {
+        //Set parameters for place call
+       let paramObject = {
+        userId: sessionStorage.getItem("ID:"),
+        address: this.Address,
+        radius: this.Radius
+      }
+
+      //If address is empty use city and state from user object
+      if(paramObject.address.length == 0) {
+        paramObject.address = this.existingUser.city + ", " + this.existingUser.state;
+      }
+
+      if(paramObject.radius.length == 0) {
+        paramObject.radius = "1000";
+      }
+      
+      console.log("Param Object: ", paramObject);
+
+      //Place call
+      this.userService.getPlacesNode(paramObject).subscribe(geoPlacesObject => {
+        this.places = geoPlacesObject.places.results;
+  
+      
+        console.log("Places Observable Object: ", this.places);
+        //console.log("Observable resolved: " + JSON.stringify(this.places));
+    }, error => {console.log("Error occurred", error)}, () => {
+      console.log("Node Place call Completed");
+    });
+      });
     
-      console.log("Observable Object: ", this.places);
-      //console.log("Observable resolved: " + JSON.stringify(this.places));
-  });
   }
 
   onSelectPlace(place: any): void {
