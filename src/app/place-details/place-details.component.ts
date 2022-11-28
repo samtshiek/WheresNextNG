@@ -20,7 +20,7 @@ export class PlaceDetailsComponent implements OnInit {
     console.log("id: ",this.id);
 
     this.userService.getPlace(this.id).subscribe(place => {
-      this.place = place.results;
+      this.place = place.result;
      // this.userService.getImage
     
       console.log("Observable Object: ", place);
