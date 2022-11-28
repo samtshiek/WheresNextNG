@@ -9,6 +9,7 @@ export class User {
     city:string;
     state:string;
     country:string;
+    hasTakenQuiz:boolean;
       id: string;
     }
   
@@ -23,6 +24,7 @@ export class User {
     city:string;
     state:string;
     country:string;
+    
   }
 
     

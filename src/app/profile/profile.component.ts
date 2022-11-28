@@ -33,7 +33,8 @@ export class ProfileComponent implements OnInit {
       email:"",
       city:"",
       state:"",
-      country:""
+      country:"",
+      hasTakenQuiz:false
     }
     if(  sessionStorage.getItem('ID:') == null ) {
       console.log('in init1 false');
@@ -79,6 +80,7 @@ export class ProfileComponent implements OnInit {
       city:pCity,
       state:pState,
       country:pCountry,
+      hasTakenQuiz:true,
       id:sessionStorage.getItem("ID:")
 
     }

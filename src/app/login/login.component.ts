@@ -75,6 +75,7 @@ export class LoginComponent implements OnInit {
 
   login (pUserName:string, pPw:string,): void {
     const message = document.getElementById("loginmessage");
+    let quiz = false;
 
     this.user = {
       username: pUserName,
@@ -91,14 +92,25 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('Name:', this.existingUser.firstName);
       console.log("User id:"+this.existingUser.id);
       this.loggedIn = true;
+      
       console.log("in login " + sessionStorage.getItem("ID:"));
+      if(!this.existingUser.hasTakenQuiz){
+        window.location.href = '/Quiz';
+      }else{
         window.location.href = '/';
+      }
 
        },(err) => {
           console.log("Error with Login");
           message.innerHTML="Error: Invalid Login Information!"
 
     });
+
+
+
+
+
+
   }
 
   logout(): void{
@@ -125,7 +137,8 @@ export class LoginComponent implements OnInit {
         email:"",
         city:"",
         state:"",
-        country:""
+        country:"",
+        hasTakenQuiz:false
       }
       if(  sessionStorage.getItem('ID:') == null ) {
         console.log('in init1 false');
