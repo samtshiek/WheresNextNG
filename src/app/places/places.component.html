@@ -22,9 +22,9 @@
        <!-- <img mat-card-image width ="50" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference={{place.photo_reference}}&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8">
       -->
         <mat-card-content>
-          <p>
-            Rating: {{place.rating}}
-          </p>
+          <label>
+            Rating: {{place.rating}} 
+          </label> &nbsp; <b>♥ {{place.matchScore * 10}}</b>
         </mat-card-content>
         <mat-card-actions>
           <a mat-raised-button color="primary" [routerLink]="['../Place-Details',place.place_id]">See More Information</a>
