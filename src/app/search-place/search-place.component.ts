@@ -44,15 +44,13 @@ export class SearchPlaceComponent implements OnInit {
 
       let paramObject = {
         address: this.Address,
+        type: this.Type,
         keyword: this.Keyword,
         radius: this.Radius,
         userId: sessionStorage.getItem("ID:")
       }
 
       console.log("Object to send: ", paramObject);
-
-      
-
       
       this.userService.getLongLat(this.Address).subscribe(jsonObject => {
         this.geocode = jsonObject.results;

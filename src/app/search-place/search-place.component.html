@@ -10,6 +10,11 @@
         </mat-form-field>
 
         <mat-form-field >
+          <mat-label>Type:</mat-label>
+          <input matInput id="Type" name="Type"  [(ngModel)]="Type" >
+        </mat-form-field>
+
+        <mat-form-field >
           <mat-label>Keyword:</mat-label>
           <input matInput id="Keyword" name="Keyword"  [(ngModel)]="Keyword" >
         </mat-form-field>
@@ -29,9 +34,31 @@
 <div id="res"></div>
 <h2 *ngIf="displayed" >My Places</h2>
 <h4>{{FormattedAddress}}</h4>
-<ul class="places">
-  <li *ngFor="let place of places">
-      <span class="badge">{{place.name}} </span>
-      <span class="name">{{place.matchScore * 10}}%</span>
-  </li>
-</ul>
+
+<div *ngFor="let place of places">
+  <div class="content">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        
+        <mat-card-title>{{place.name}}</mat-card-title>
+        <img
+      src="{{place.icon}}"
+      mat-card-avatar />
+      </mat-card-header>
+      <mat-card-subtitle>
+      <p style ="padding-left: 60px;">{{place.vicinity}}</p> 
+      </mat-card-subtitle>
+     <img mat-card-image width ="50" *ngFor="let photo of place.photos" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&photo_reference={{photo.photo_reference}}&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s">
+     <!-- <img mat-card-image width ="50" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=50&photo_reference={{place.photo_reference}}&key=AIzaSyDlcVUDD3WhvXXA2XvrTflCjMn0VO3Bam8">
+    -->
+      <mat-card-content>
+        <label>
+          Rating: {{place.rating}} 
+        </label> &nbsp; <b>♥ {{place.matchScore * 10}}</b>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-raised-button color="primary" [routerLink]="['../Place-Details',place.place_id]">See More Information</a>
+        <button mat-raised-button color="accent" >Add to Favorites</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

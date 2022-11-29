@@ -72,7 +72,9 @@ export class PlacesComponent implements OnInit {
        let paramObject = {
         userId: sessionStorage.getItem("ID:"),
         address: this.Address,
-        radius: this.Radius
+        radius: this.Radius,
+        type: this.Type,
+        keyword: this.Keyword
       }
 
       //If address is empty use city and state from user object
