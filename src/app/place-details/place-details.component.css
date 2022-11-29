@@ -1,0 +1,12 @@
+.content {
+    padding: 16px;
+}
+
+.content > mat-card {
+    width: 500px;
+    background-color:darkcyan;
+}
+mat-coursel-slide .image{
+    width: 250px;
+    height: 250px;
+}

@@ -12,23 +12,36 @@ import { getMatFormFieldPlaceholderConflictError } from '@angular/material/form-
 export class PlaceDetailsComponent implements OnInit {
   id: string;
   place:any;
+  slides = [];
 
-  constructor(private userService: UserService,private route: ActivatedRoute) { }
+  constructor(private userService: UserService,private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit(): void {
+    
     this.id = this.route.snapshot.paramMap.get('id');
     console.log("id: ",this.id);
 
     this.userService.getPlace(this.id).subscribe(place => {
       this.place = place.result;
      // this.userService.getImage
+      this.place.photos.forEach(photo => {
+      this.slides.push({'image':'https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photo_reference='+photo.photo_reference+'&key=AIzaSyAq8gX10e_a_1ojTNAxnN3jmQar4bBGtd4'});
+    }); 
+
+    console.log("Slides: "+this.slides.values);
+
+
     
       console.log("Observable Object: ", place);
       console.log("Observable resolved: " + JSON.stringify(place));
   });
 
+ 
+
 }
 
-  
+
 
 }
