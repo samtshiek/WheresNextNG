@@ -136,7 +136,8 @@ questions = ["1. What do you like to watch on TV?",
     let ID = sessionStorage.getItem('ID:');
     let ansObject = {
     id : ID, 
-    results : this.results
+    results : this.results,
+    radius: this.Radius
     }
 
     let geo = {
