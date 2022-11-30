@@ -39,7 +39,7 @@ export class PlaceDetailsComponent implements OnInit {
       }); 
 
       this.place.reviews.forEach(review =>{
-        this.reviews.push({'author_name': review.author_name},{'rating':review.rating},{'relative_time':review.relative_time_description}, {'text': review.text},{'profphoto':review.profile_photo_url});
+        this.reviews.push({'author_name': review.author_name,'rating':review.rating,'relative_time':review.relative_time_description,'text': review.text,'profphoto':review.profile_photo_url});
       });
      // this.opening = this.place.current_opening_hours;
 /*        this.place.current_opening_hours.forEach(open1 =>{
@@ -57,7 +57,7 @@ export class PlaceDetailsComponent implements OnInit {
       } */
  
 
-   // console.log("Reviews: "+this.reviews.values);
+    console.log("Reviews: "+this.reviews);
 
    // console.log("Slides: "+this.slides.values);
 
