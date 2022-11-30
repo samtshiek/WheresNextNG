@@ -27,6 +27,10 @@ import {MatSliderModule} from '@angular/material/slider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { SearchPlaceComponent } from './search-place/search-place.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule,} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
 import {Router} from '@angular/router';
 
@@ -53,7 +57,11 @@ import {Router} from '@angular/router';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatTableModule,
     MatTabsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
     MatInputModule,
     MatCardModule,
