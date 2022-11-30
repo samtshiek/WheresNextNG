@@ -24,20 +24,20 @@
         </mat-card-content>
         <mat-card-actions>
           <a mat-raised-button color="primary" [routerLink]="['../Place-Details',place.place_id]">See More Information</a>
-          <button mat-raised-button color="accent" >Add to Favorites</button>
+          <button mat-raised-button color="accent" (click)="addPlaceToFavorites(place)" >Add to Favorites</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
 
-<div *ngIf="selectedPlace">
+<!-- <div *ngIf="selectedPlace">
   <h2>{{selectedPlace.name | uppercase}} Details</h2>
   <div>Place rating: {{selectedPlace.rating}}</div>
   <div>
     <label for="place-name">Place name: </label>
     <input id="place-name" [(ngModel)]="selectedPlace.name" placeholder="name">
   </div>
-</div>
+</div> -->
 
 
 

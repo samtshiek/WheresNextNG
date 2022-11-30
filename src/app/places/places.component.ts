@@ -25,6 +25,7 @@ export class PlacesComponent implements OnInit {
   long?: string = '';
   geoObject: any;
   existingUser: any;
+  placesArray: any[] = [];
 
 
 
@@ -105,13 +106,22 @@ export class PlacesComponent implements OnInit {
   onSelectPlace(place: any): void {
     this.selectedPlace = place;
   }
-  // add to favorites for selected place and send to favorites component
-  // addToFavorites(place: any): void {
-  //   this.selectedPlace = place;
-  //   this.userService.addToFavorites(place);
-    
-  // }
 
-  
+
+
+// Add places to favaorite to backend
+addPlaceToFavorites(place: any): void  {
+  let ID = sessionStorage.getItem('ID:');
+    let favObject = {
+    id : ID, 
+    place : place,
+    
+    }
+
+  this.userService.addPlaceToFavorite(favObject).subscribe(data => {
+    console.log("Place added: ", data);
+    
+  });
+}
 
 }

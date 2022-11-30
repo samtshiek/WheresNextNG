@@ -71,6 +71,20 @@ export class PlaceDetailsComponent implements OnInit {
 
 }
 
+addPlaceToFavorites(place: any): void  {
+  let ID = sessionStorage.getItem('ID:');
+    let favObject = {
+    id : ID, 
+    place : place,
+    
+    }
+
+  this.userService.addPlaceToFavorite(favObject).subscribe(data => {
+    console.log("Place added: ", data);
+    
+  });
+}
+
 
 
 

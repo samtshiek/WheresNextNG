@@ -81,7 +81,7 @@
          </mat-card-content>
          <mat-card-actions>
            <a mat-raised-button color="accent" [routerLink]="['../Place-Details',place.place_id]">I want to go here!</a>
-           <button mat-raised-button color="primary">Add to Favorites</button>
+           <button mat-raised-button color="primary" (click)="addPlaceToFavorites(place)">Add to Favorites</button>
          </mat-card-actions>
        </mat-card>
      </div>

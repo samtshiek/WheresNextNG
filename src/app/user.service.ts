@@ -68,7 +68,7 @@ export class UserService {
 
   getPlaces(): Observable<any> {
 
-    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
+    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=-33.8670522%2C151.1957362&radius=1500&type=restaurant&key=detailsKEY=AIzaSyAq8gX10e_a_1ojTNAxnN3jmQar4bBGtd4');
     
   //  let promise = observable.toPromise();
 
@@ -101,8 +101,20 @@ export class UserService {
     return this.geoObject;
   }
 
-  // addToFavorites(place: any): Observable<any> {
-  //   return this.http.post<any>('http://localhost:3000/users/add-favourite', {place: place});
-  // }
+  // addPlaceToFavorites from places component
+  
+  
 
+//  addFavorite(uid, place): Observable<any> {
+//     console.log("test user service", uid, place);
+//     return this.http.post<any>('http://localhost:3000/users/add-favorite', {uid: uid, place: place});
+//   }
+ addPlaceToFavorite(favObject: any): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/users/add-place-to-favorite', favObject);
+  }
+  
+  getFavoritePlace(place: any ): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/users/get-favorite-place'+ place);
+  }
+ 
 }
