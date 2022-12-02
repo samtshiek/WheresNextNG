@@ -5,7 +5,7 @@
 
     
     <div class="toolbar-menu" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" >
-        <a mat-button routerLink="/" *ngIf="loggedIn">Home</a>
+        <a mat-button routerLink="/Dashboard" *ngIf="loggedIn">Dashboard</a>
         
         <a mat-button routerLink="/Profile" *ngIf="loggedIn">Profile</a>
         <a mat-button routerLink="/Search-Place" *ngIf="loggedIn">Search Place</a>
@@ -30,8 +30,7 @@
    <app-login></app-login> 
   </div>
   <div *ngIf="loggedIn">
-    <h2>You are logged in.  {{currentUser}}</h2>
-      <app-favorites></app-favorites>  
+    <!-- <h2>You are logged in.  {{currentUser}}</h2> -->
     
   </div> 
   

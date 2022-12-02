@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
       if(!this.existingUser.hasTakenQuiz){
         window.location.href = '/Quiz';
       }else{
-        window.location.href = '/';
+        window.location.href = '/Dashboard';
       }
 
        },(err) => {
