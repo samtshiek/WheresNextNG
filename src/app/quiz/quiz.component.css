@@ -14,5 +14,8 @@ p{
     
     margin-left: 10px;
 }
-
+.content > mat-card {
+    width: 400px;
+    background-color:darkcyan;
+}
 

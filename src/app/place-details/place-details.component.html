@@ -10,8 +10,7 @@
          </mat-card-header>
          <mat-card-subtitle>
          <h3 style ="padding-left: 60px;"> {{place.vicinity}}</h3> 
-         <p style ="padding-left: 60px;" *ngIf="open"> Open Now!</p> 
-         <p style ="padding-left: 40px;" >Phone Number:  {{place.formatted_phone_number}}</p> 
+         <p style ="padding-left: 60px;" >Phone Number:  {{place.formatted_phone_number}}</p> 
          <p>{{place.editorial_summary.overview}}</p>
          </mat-card-subtitle>
          <mat-carousel
@@ -46,44 +45,43 @@
            <h2>
             Price level: {{place.price_level}}
           </h2>
-          <h3><a href ="{{place.url}}" >{{place.name}}</a>    </h3>
+          <a mat-raised-button color="accent" href ="{{place.url}}" target="_blank">See Details of {{place.name}} On Google</a>
+          <mat-card-actions style ="padding-left: 10px;">
+            <button mat-raised-button color="primary"  (click)="addPlaceToFavorites(place)" target="_blank">Add to Favorites</button>
+          </mat-card-actions>
            <h1>Reviews:
 
            </h1>
-           <mat-table clas="mat-elevation-z8" [dataSource]="reviews">
+           <div *ngFor="let review of reviews">
+            <mat-card>
+              <mat-card-header>
+              <h1>Rating : {{review.rating}}</h1>
+              </mat-card-header>
+              <mat-card-subtitle>
+                <p style ="padding-left: 35px;color: crimson;">    Written by {{review.author_name}}   {{review.relative_time}}</p>
 
-            <ng-container matColumnDef="author_name">
-              <mat-header-cell *matHeaderCellDef>Author Name</mat-header-cell>
-              <mat-cell *matCellDef="let review">{{review.author_name}}</mat-cell>
-          </ng-container>
+              </mat-card-subtitle>
 
-          <ng-container matColumnDef="rating">
-            <mat-header-cell *matHeaderCellDef>Rating</mat-header-cell>
-            <mat-cell *matCellDef="let review">{{review.rating}}</mat-cell>
-         </ng-container>
+              <mat-card-content>
+                {{review.text}}
+              </mat-card-content>
+              <mat-card-footer>
+             
+              </mat-card-footer>
+              </mat-card>
+              <br/>
+              </div>
 
-          <ng-container matColumnDef="relative_time">
-            <mat-header-cell *matHeaderCellDef>Review Published</mat-header-cell>
-            <mat-cell *matCellDef="let review">{{review.relative_time}}</mat-cell>
-          </ng-container>
 
-          <ng-container matColumnDef="text">
-              <mat-header-cell *matHeaderCellDef>Review Text</mat-header-cell>
-              <mat-cell *matCellDef="let review">{{review.text}}</mat-cell>
-          </ng-container>
-          
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
-          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-          </mat-table>
 
 
          </mat-card-content>
-         <mat-card-actions>
-           <a mat-raised-button color="accent" [routerLink]="['../Place-Details',place.place_id]">I want to go here!</a>
-           <button mat-raised-button color="primary" (click)="addPlaceToFavorites(place)">Add to Favorites</button>
-         </mat-card-actions>
+
+
+        
        </mat-card>
+       
+       
      </div>
 
 
