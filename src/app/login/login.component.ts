@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.newUser(this.newUser)
    .subscribe(data => {
-   // this.loggedIn = true;
+    this.loggedIn = true;
 /* 
     let userInfo =  JSON.parse(JSON.stringify(data));
     this.existingUser = userInfo;

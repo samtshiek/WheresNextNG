@@ -31,7 +31,7 @@
   </div>
   <div *ngIf="loggedIn">
     <h2>You are logged in.  {{currentUser}}</h2>
-
+      <app-favorites></app-favorites>  
     
   </div> 
   
@@ -59,7 +59,11 @@ orientation="ltr"
   [hideOverlay]="true"
 ></mat-carousel-slide>
 </mat-carousel>
+
+
+
   </div>
+
   
 
 <router-outlet></router-outlet>
