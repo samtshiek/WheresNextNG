@@ -82,6 +82,8 @@ addPlaceToFavorites(place: any): void  {
 
   this.userService.addPlaceToFavorite(favObject).subscribe(data => {
     console.log("Place added: ", data);
+
+    alert(`Place added to favorites!`);
     
   });
 }

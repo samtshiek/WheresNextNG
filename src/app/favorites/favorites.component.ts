@@ -13,7 +13,8 @@ export class FavoritesComponent implements OnInit {
   existingUser: any;
   favArrays= [];
   slides = [];
- 
+  places:[] = [];
+  selectedPlace?;
   
   constructor(private userService: UserService, private router: Router) { }
 
@@ -24,7 +25,7 @@ export class FavoritesComponent implements OnInit {
   }
 
 
-  // getting favorite places from backend
+  // getting favorite places
   getFavoritePlace(){
     let uid =(sessionStorage.getItem('ID:'));
 
@@ -40,6 +41,31 @@ export class FavoritesComponent implements OnInit {
 
   });
 
-}
 
+  }
+
+  removeFavoritePlace(no : number){
+    
+    let ID = sessionStorage.getItem('ID:');
+    let RemfavObject = {
+    id : ID, 
+    place : no,
+    
+    }
+    this.favArrays.splice(no,1);  
+    console.log("favorite places", this.favArrays )
+
+  this.userService.removeFavoritePlace(RemfavObject).subscribe(data => {
+    console.log("user data: ", data);
+
+    alert(`Place removed from favorites!`);
+
+   
+    
+  });
+  
+
+  }
+
+  
 }
