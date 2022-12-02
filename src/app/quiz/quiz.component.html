@@ -18,17 +18,22 @@
       </form>
     </mat-card-content>
   </mat-card>
+  <br>
+  <div id="questionsDiv">
+    <p id="p"></p>
+  </div>
+
+<div id="buttonDiv">
+<button (click)="serveQuestions()">Next</button>
+<br>
+<button (click)="postResults()">Submit</button>
+</div>
+
+<div id="message"><h1>{{message}}</h1></div>
+
 </div>
 <br>
- <p id="p"></p>
- 
 
-
- <button (click)="serveQuestions()">Next</button>
-  <br>
-  <button (click)="postResults()">Submit</button>
-
-  <div id="message"><h1>{{message}}</h1></div>
 
 
 

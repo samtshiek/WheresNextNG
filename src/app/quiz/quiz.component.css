@@ -3,10 +3,9 @@ button{
     border: none;
     color: white;
     padding: 15px 32px;
-    text-align: center;
+    margin: 3px;
     font-size: 16px;
-    margin: 4px 2px;
-    
+    width: 50%;   
 }
 p{
     font-size: 15px;
@@ -14,5 +13,29 @@ p{
     
     margin-left: 10px;
 }
+
+mat-card {
+    text-align: center;
+}
+
+
+#SearchDiv {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+#questionsDiv {
+  margin: auto;
+  width: 50%;
+}
+
+#buttonDiv {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+
 
 
