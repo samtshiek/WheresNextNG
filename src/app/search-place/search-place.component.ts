@@ -44,7 +44,7 @@ export class SearchPlaceComponent implements OnInit {
 
       let paramObject = {
         address: this.Address,
-        type: this.Type,
+        type: this.Type.toLowerCase(),
         keyword: this.Keyword,
         radius: this.Radius,
         userId: sessionStorage.getItem("ID:")
@@ -69,15 +69,15 @@ export class SearchPlaceComponent implements OnInit {
         console.log("Geo call complete ");
 
       //geoPlacesJsonObject carries two fields (places object and geo object). geo object carries geolocation call data, while places carries places call results 
-      this.userService.getPlacesNode(paramObject).subscribe(geoPlacesJsonObject => {
-        console.log("Place result node angular: ", geoPlacesJsonObject);
-        this.places = geoPlacesJsonObject.places.results;
+      this.userService.getPlacesAdvanced(paramObject.keyword, this.lat, this.long, paramObject.radius, paramObject.type).subscribe( places => {
+        console.log("Places: ", places);
+        this.places = places.results;
         if (this.places.length == 0) {
           this.FormattedAddress = "No result has been found for this area.";
         }
         else {
           this.displayed = true;
-          this.FormattedAddress = "Results for area surrounding: " + geoPlacesJsonObject.geo.results[0].formatted_address;
+          this.FormattedAddress = "Results for area surrounding: " + this.geocode[0].formatted_address;
         }
       });
       });
