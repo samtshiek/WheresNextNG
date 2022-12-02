@@ -116,5 +116,8 @@ export class UserService {
   getFavoritePlace(place: any ): Observable<any> {
     return this.http.get<any>('http://localhost:3000/users/get-favorite-place'+ place);
   }
+  removeFavoritePlace(RemfavObject: any ): Observable<any> {
+   return this.http.post<any>('http://localhost:3000/users/remove-favorite', RemfavObject);
+  }
  
 }

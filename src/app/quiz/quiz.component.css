@@ -13,6 +13,7 @@ p{
     
     margin-left: 10px;
 }
+<<<<<<< HEAD
 
 mat-card {
     text-align: center;
@@ -38,4 +39,10 @@ mat-card {
 
 
 
+=======
+.content > mat-card {
+    width: 400px;
+    background-color:darkcyan;
+}
+>>>>>>> aff9d8c75bc6527cf118ab586213017cf5735259
 

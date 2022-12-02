@@ -109,7 +109,7 @@ export class PlacesComponent implements OnInit {
 
 
 
-// Add places to favaorite to backend
+// Add places to favaorites
 addPlaceToFavorites(place: any): void  {
   let ID = sessionStorage.getItem('ID:');
     let favObject = {
@@ -119,7 +119,10 @@ addPlaceToFavorites(place: any): void  {
     }
 
   this.userService.addPlaceToFavorite(favObject).subscribe(data => {
-    console.log("Place added: ", data);
+    console.log("user data: ", data);
+    console.log("place added: ", place);
+
+    alert(`Place added to favorites!`);
     
   });
 }

@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router'
 import { getMatFormFieldPlaceholderConflictError } from '@angular/material/form-field';
 
 
+
 @Component({
   selector: 'app-place-details',
   templateUrl: './place-details.component.html',
@@ -81,6 +82,8 @@ addPlaceToFavorites(place: any): void  {
 
   this.userService.addPlaceToFavorite(favObject).subscribe(data => {
     console.log("Place added: ", data);
+
+    alert(`Place added to favorites!`);
     
   });
 }
