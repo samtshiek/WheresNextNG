@@ -22,7 +22,7 @@
             </label> &nbsp; <b>♥ {{favArray.matchScore * 10}}</b>
           </mat-card-content>
           <mat-card-actions>
-            <!-- <a mat-raised-button color="primary" [routerLink]="['../Place-Details',favArray.place_id]">See More Information</a> -->
+             <a mat-raised-button color="accent" [routerLink]="['../Place-Details',favArray.place_id]">See More Information</a>
             <button mat-raised-button color="primary" (click)="removeFavoritePlace(i)" >Remove from favorites</button>
             <!-- <button mat-raised-button color="primary"><a href ="{{favArray.url}}" ></a>Get Directions</button> -->
           </mat-card-actions>
