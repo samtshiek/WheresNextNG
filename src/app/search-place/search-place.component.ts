@@ -69,8 +69,13 @@ export class SearchPlaceComponent implements OnInit {
         console.log("Geo call complete ");
 
       //geoPlacesJsonObject carries two fields (places object and geo object). geo object carries geolocation call data, while places carries places call results 
+<<<<<<< HEAD
       this.userService.getPlacesAdvanced(paramObject.keyword, this.lat, this.long, paramObject.radius, paramObject.type).subscribe( places => {
         console.log("Places: ", places);
+=======
+      this.userService.getPlacesAdvanced(paramObject.keyword, this.lat, this.long, paramObject.radius, paramObject.type).subscribe(places => {
+        console.log("Place result node angular: ", places);
+>>>>>>> b5ce5551e945d974190b323b9a3f985fa47d63c4
         this.places = places.results;
         if (this.places.length == 0) {
           this.FormattedAddress = "No result has been found for this area.";

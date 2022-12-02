@@ -33,6 +33,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
 import {Router} from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {Router} from '@angular/router';
     PlacesComponent,
     SearchPlaceComponent,
     PlaceDetailsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

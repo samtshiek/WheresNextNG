@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,8 @@ export class AppComponent {
   currentUser: string = 'Please Log In';
   navLinks: any[];
   activeLinkIndex = -1;
+
+
   uID: number = null;
   slides = [{'image': '/assets/img/trail.png'}, 
   {'image': '/assets/img/coffee.jpg'},
@@ -58,6 +61,7 @@ ngOnInit(): void {
 
   console.log("Userid :", sessionStorage.getItem("ID:"));
 
+
   this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
   });
@@ -91,6 +95,9 @@ logIn():void{
   this.loginbut =true;
   this.signup =false;
 }
+
+
+
 
  
 }
