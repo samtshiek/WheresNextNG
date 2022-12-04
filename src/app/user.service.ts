@@ -27,7 +27,8 @@ export class UserService {
 
   loginUser(newUser: loginUser): Observable<string> {  // usin a post as I want to pass the data in the body
     console.log("We are gonna go to this url"+'https://wheresnextnode.azurewebsites.net/login');
-    return this.http.post<string>('https://wheresnextnode.azurewebsites.net/login', newUser);
+    //return this.http.post<string>('https://wheresnextnode.azurewebsites.net/login', newUser);
+    return this.http.post<string>('http://localhost:3000/login', newUser);
   }
 
   newUser(newUser: NewUser): Observable<User> {
@@ -46,7 +47,8 @@ export class UserService {
   }
 
   getPlacesNode(searchObject: any): Observable<any> {
-    let observable = this.http.post<any>('https://wheresnextnode.azurewebsites.net/users/get-places', searchObject);
+    //let observable = this.http.post<any>('https://wheresnextnode.azurewebsites.net/users/get-places', searchObject);
+    let observable = this.http.post<any>('http://localhost:3000/users/get-places', searchObject);
     console.log("Node place result: ", observable);
 
     return observable;
@@ -63,8 +65,8 @@ export class UserService {
   getPlacesAdvanced(ParamObject: any): Observable<any> {
 
     console.log("ParamObject type in method: ", ParamObject);
-    let observable = this.http.post<any>('https://wheresnextnode.azurewebsites.net/users/get-places-advanced', ParamObject);
-    
+    //let observable = this.http.post<any>('https://wheresnextnode.azurewebsites.net/users/get-places-advanced', ParamObject);
+    let observable = this.http.post<any>('http://localhost:3000/users/get-places-advanced', ParamObject);
     return observable;
   }
 

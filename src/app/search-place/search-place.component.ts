@@ -79,9 +79,10 @@ export class SearchPlaceComponent implements OnInit {
       console.log("Param Object: ", paramObject);
 
       //Place call
-      this.userService.getPlacesAdvanced(paramObject).subscribe( places => {
-        console.log("Places: ", places);
-        this.places = places.results;
+      this.userService.getPlacesAdvanced(paramObject).subscribe( geoPlacesObject => {
+        console.log("Places: ", geoPlacesObject);
+        this.places = geoPlacesObject.places.results;
+        this.geocode = geoPlacesObject.geo.results;
         if (this.places.length == 0) {
           this.FormattedAddress = "No result has been found for this area.";
         }
