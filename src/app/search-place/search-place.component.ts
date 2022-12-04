@@ -27,6 +27,7 @@ export class SearchPlaceComponent implements OnInit {
   lat?: string = '';
   long?: string = '';
   displayed: boolean = false;
+  existingUser: any
 
   constructor(private userService: UserService ) {}
 
@@ -40,36 +41,45 @@ export class SearchPlaceComponent implements OnInit {
   
     console.log("Address entered: " + this.Address);
 
-    if(this.Address != null && this.Address.length !=0) {
+    let paramObject = {
+      address: this.Address,
+      type: this.Type.toLowerCase(),
+      keyword: this.Keyword,
+      radius: this.Radius,
+      id: sessionStorage.getItem("ID:")
+    }
 
-      let paramObject = {
-        address: this.Address,
-        type: this.Type.toLowerCase(),
-        keyword: this.Keyword,
-        radius: this.Radius,
-        userId: sessionStorage.getItem("ID:")
+    if(this.Address != null && this.Address.length !=0) {
+      let uid =(sessionStorage.getItem('ID:'));
+
+      //Get user object
+      this.userService.getUser(uid)
+          .subscribe(data => {
+          console.log("User data: ", data);
+        this.existingUser = data;
+
+      }, error => {}, () => {
+
+
+      //If address is empty use city and state from user object
+      if(paramObject.address.length == 0) {
+        paramObject.address = this.existingUser.city + ", " + this.existingUser.state;
       }
 
-      console.log("Object to send: ", paramObject);
+      if(paramObject.radius.length == 0) {
+        if(this.existingUser.preference.radius.length > 0) {
+          paramObject.radius = this.existingUser.preference.radius;
+        }
+
+        else {
+          paramObject.radius = "1000";
+        }
+      }
       
-      this.userService.getLongLat(this.Address).subscribe(jsonObject => {
-        this.geocode = jsonObject.results;
-        console.log("Geolocation result: ", this.geocode);
-       
-        this.lat = this.geocode[0].geometry.location.lat;
-        this.long = this.geocode[0].geometry.location.lng;
-        console.log("Results for area surrounding: " + this.geocode[0].formatted_address);
-        
-        this.FormattedAddress = "Results for area surrounding: " + this.geocode[0].formatted_address;
+      console.log("Param Object: ", paramObject);
 
-        console.log("Lat and Long: ", this.lat + "/" + this.long);
-      }, error => {
-        console.log("An error occured: ", error);
-      }, () => {
-        console.log("Geo call complete ");
-
-      //geoPlacesJsonObject carries two fields (places object and geo object). geo object carries geolocation call data, while places carries places call results 
-      this.userService.getPlacesAdvanced(paramObject.keyword, this.lat, this.long, paramObject.radius, paramObject.type).subscribe( places => {
+      //Place call
+      this.userService.getPlacesAdvanced(paramObject).subscribe( places => {
         console.log("Places: ", places);
         this.places = places.results;
         if (this.places.length == 0) {
@@ -84,7 +94,5 @@ export class SearchPlaceComponent implements OnInit {
 
     }
   }
-
-  
 
 }

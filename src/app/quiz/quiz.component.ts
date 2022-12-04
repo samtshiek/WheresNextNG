@@ -75,17 +75,20 @@ questions = ["1. What do you like to watch on TV?",
       this.isAnySelected = false;
   
       let p = document.getElementById("p");
+      
       p.innerHTML ='';
   
       console.log("Question:" + (this.i+1));
   
       //i represents the question number
       p.innerHTML = this.questions[this.i];
+      p.style.fontSize = "18px";
   
       //k represents the answer number from 'a' to 'd'. ('a' would be answer 1, 'd' would be answer 4)
       for (let k = 0; k < 4; k++) {
   
         let la = document.createElement("label");
+        la.style.fontSize = "15px";
         la.innerHTML = "<br>" + this.answers[this.i][k];
         let r1 = document.createElement("input");
         r1.setAttribute("type", "radio");

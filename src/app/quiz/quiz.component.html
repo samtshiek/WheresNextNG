@@ -1,4 +1,6 @@
-<h2>Please take a few moment to answer few questions to get to know you better. You don't have to answer all of them, but answering more will make your results more accurate. </h2>
+<mat-card>
+  <p id="qintro">Please take a few moment to answer few questions to get to know you better. You don't have to answer all of them, but answering more will make your results more accurate. </p>
+  </mat-card>
 
 <div id="SearchDiv">
   <mat-card>
@@ -18,10 +20,12 @@
       </form>
     </mat-card-content>
   </mat-card>
-  <br>
-  <div id="questionsDiv">
-    <p id="p"></p>
-  </div>
+  
+  <mat-card id="questionMatCard">
+    <div id="questionsDiv">
+      <p id="p"></p>
+    </div>
+  </mat-card>
 
 <div id="buttonDiv">
 <button (click)="serveQuestions()">Next</button>

@@ -71,7 +71,7 @@ export class PlacesComponent implements OnInit {
       }, error => {}, () => {
         //Set parameters for place call
        let paramObject = {
-        userId: sessionStorage.getItem("ID:"),
+        id: sessionStorage.getItem("ID:"),
         address: this.Address,
         radius: this.Radius,
         type: this.Type,
@@ -84,8 +84,15 @@ export class PlacesComponent implements OnInit {
       }
 
       if(paramObject.radius.length == 0) {
-        paramObject.radius = "1000";
+        if(this.existingUser.preference.radius.length > 0) {
+          paramObject.radius = this.existingUser.preference.radius;
+        }
+
+        else {
+          paramObject.radius = "1000";
+        }
       }
+      
       
       console.log("Param Object: ", paramObject);
 

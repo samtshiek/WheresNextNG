@@ -60,10 +60,10 @@ export class UserService {
    // return observable;
   }
 
-  getPlacesAdvanced(keyword: string, latitude: string, longitude: string, radius: string, type: string): Observable<any> {
+  getPlacesAdvanced(ParamObject: any): Observable<any> {
 
-    console.log("ParamObject type in method: ", type);
-    let observable = this.http.get<any>('https://cors-prefix.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword='+ keyword +'&location='+ latitude +'%2C'+ longitude +'&radius='+ radius +'&type='+ type +'&key=AIzaSyBKuuHUPZ_BDWlCnLSYPylkTCd7LQpsU6s');
+    console.log("ParamObject type in method: ", ParamObject);
+    let observable = this.http.post<any>('https://wheresnextnode.azurewebsites.net/users/get-places-advanced', ParamObject);
     
     return observable;
   }
