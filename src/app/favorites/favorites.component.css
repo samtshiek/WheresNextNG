@@ -10,3 +10,15 @@
 #center {
     text-align: center;
 }
+
+#favTitle {
+    font-size: medium;
+    width: fit-content;
+    background-color: brown;
+    text-align: center;
+    margin:auto;
+}
+
+#outermostDiv {
+    width:min-content;
+}

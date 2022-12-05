@@ -15,6 +15,7 @@ export class FavoritesComponent implements OnInit {
   slides = [];
   places:[] = [];
   selectedPlace?;
+  displayed: boolean = false;
   
   constructor(private userService: UserService, private router: Router) { }
 
@@ -39,9 +40,10 @@ export class FavoritesComponent implements OnInit {
   // show message "no favorite places" instead of h2 tag if no favorite places are added by user
   if(this.favArrays.length == 0){
   document.getElementsByClassName("favoriteTitle")[0].innerHTML = "No favorite places added yet!";
-  
-  
-  
+  }
+
+  else {
+    this.displayed = true;
   }
   
 

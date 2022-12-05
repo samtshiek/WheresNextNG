@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       else if(sessionStorage.getItem('ID:').length > 5){
       this.loggedIn = true;
       this.uID = Number(sessionStorage.getItem('ID:'));
-      this.currentUser = 'Welcome ' + sessionStorage.getItem('Name:');
+      this.currentUser = sessionStorage.getItem('Name:');
     } 
   
 

@@ -28,12 +28,14 @@
       </form>
     </mat-card-content>
   </mat-card>
-</div>
+
 
 <br>
-<div id="res"></div>
-<h2 *ngIf="displayed" >My Places</h2>
-<h4>{{FormattedAddress}}</h4>
+
+<mat-card id="searchTitle" *ngIf="displayed">
+<p *ngIf="displayed" >Search results</p>
+</mat-card>
+<h3 id="address">{{FormattedAddress}}</h3>
 
 <div *ngFor="let place of places">
   <div class="content">
@@ -62,3 +64,5 @@
       </mat-card-actions>
     </mat-card>
   </div>
+</div>
+</div>

@@ -1,5 +1,5 @@
 .content {
-  padding: 16px;
+  padding: 8px;
 }
 
 button{
@@ -26,6 +26,25 @@ mat-card {
   p{
     color: white;
   }
+
+  #searchTitle {
+    font-size: medium;
+    width: fit-content;
+    background-color: brown;
+    text-align: center;
+    margin:auto;
+}
+
+#SearchDiv {
+    width:fit-content;
+}
+
+#address {
+  margin-top: 4px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
    
 
  
