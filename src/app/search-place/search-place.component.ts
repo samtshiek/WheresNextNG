@@ -35,6 +35,24 @@ export class SearchPlaceComponent implements OnInit {
   
   }
 
+
+  addPlaceToFavorites(place: any): void  {
+    let ID = sessionStorage.getItem('ID:');
+      let favObject = {
+      id : ID, 
+      place : place,
+      
+      }
+  
+    this.userService.addPlaceToFavorite(favObject).subscribe(data => {
+      console.log("user data: ", data);
+      console.log("place added: ", place);
+  
+      alert(`Place added to favorites!`);
+      
+    });
+  }
+  
   
 
   advancedPlaceSearch(): void {

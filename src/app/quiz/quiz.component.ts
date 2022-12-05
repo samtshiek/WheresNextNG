@@ -31,8 +31,7 @@ export class QuizComponent {
 ["a. Yes, you will find me at the gym most days", "b. Yes, I love to get outdoors and hike or mountain bike.", "c.  I exercise sometimes if I make myself", "d. My version of active is using the remote while sitting on the couch."],
 ["a. I’d love to, I take any opportunity to be around art", "b. I will be there, I’d like to see some of the paintings", "c. I will go, I like support you in what you do", "d. No thanks, it is not my scene."],
 ["a. Movie Theatre", "b. Local restaurant", "c. A park nearby", "d. My favorite cafe"],
-["a. I fall flat on my face", "b. I can occasionally hit some of the pins", "c. I can do pretty well", "d. I win most of the time"],
-["a. 10 miles", "b. 20 miles", "c. 30 miles", "d. 50+ miles"],];
+["a. I fall flat on my face", "b. I can occasionally hit some of the pins", "c. I can do pretty well", "d. I win most of the time"]];
 
 questions = ["1. What do you like to watch on TV?",
 "2. How do you feel about eating out?",
@@ -46,9 +45,7 @@ questions = ["1. What do you like to watch on TV?",
 "10. Do you live an active lifestyle?",
 "11. A friend is opening an art gallery, and would like you to attend the opening. What do you say? ",
 "12. You are asked by a group of friends to suggest somewhere to meet up. What is your top pick? ",
-"13. What is your skill level when it comes to bowling? ",
-"14. If you want to go somewhere, how far are you willing to travel? ",
-];
+"13. What is your skill level when it comes to bowling? "];
 
   previousElement: HTMLInputElement = document.createElement("input");
   
@@ -70,7 +67,7 @@ questions = ["1. What do you like to watch on TV?",
     this.previousElement.setAttribute("type", "radio");
     let classThis = this
   
-    if(this.i < 14 && this.isAnySelected) {
+    if(this.i < 13 && this.isAnySelected) {
   
       this.isAnySelected = false;
   
