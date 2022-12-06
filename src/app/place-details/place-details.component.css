@@ -10,3 +10,11 @@ mat-coursel-slide .image{
     width: 250px;
     height: 250px;
 }
+#detTitle {
+    font-size: medium;
+    width: fit-content;
+    height:50px;
+    background-color: #c20f68;
+    text-align: center;
+    margin:auto;
+}

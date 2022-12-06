@@ -30,7 +30,7 @@ mat-card {
   #searchTitle {
     font-size: medium;
     width: fit-content;
-    background-color: brown;
+    background-color: rgb(17, 100, 110);
     text-align: center;
     margin:auto;
 }

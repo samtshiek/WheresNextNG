@@ -3,7 +3,7 @@
 }
 
 .content > mat-card {
-    width: 500px;
+    width: 700px;
     background-color:darkcyan;
 }
  
@@ -14,7 +14,8 @@
 #placesTitle {
     font-size: medium;
     width: fit-content;
-    background-color: brown;
+    height: 40px;
+    background-color: #c20f68;
     text-align: center;
     margin:auto;
 }

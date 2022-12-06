@@ -1,7 +1,19 @@
-<div *ngIf="loggedIn">
-    <h2>You are logged in. Welcome <i><b id="user"> {{currentUser}}</b></i></h2>
+
+ <div *ngIf="loggedIn">
+    <h2 style="margin-left:20px">You are logged in. Welcome <i><b id="user"> {{currentUser}}</b></i></h2>
     <app-favorites></app-favorites>
     
   </div> 
-  
-  
+   
+<!--   <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+    You are logged in. Welcome <i><b id="user"> {{currentUser}}</b></mat-card-header>
+    <mat-card-subtitle>
+    <p style ="padding-left: 60px;">Subtitle</p> 
+    </mat-card-subtitle>
+
+    <mat-card-content>
+     
+    </mat-card-content>
+    
+  </mat-card> -->

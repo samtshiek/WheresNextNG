@@ -1,10 +1,10 @@
 <mat-toolbar>
-  <img src="/assets/img/logo.png" alt="image">
-    <span>Where'sNext! </span>
+  <img src="/assets/img/logo2.png" alt="image">
+    <span> </span>
     <br/>
 
     
-    <div class="toolbar-menu" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" >
+    <div class="toolbar-menu" fxFlex="25%" fxFlex.xs="60%" fxFlex.sm="33%" >
         <a mat-button routerLink="/Dashboard" *ngIf="loggedIn">Dashboard</a>
         
         <a mat-button routerLink="/Profile" *ngIf="loggedIn">Profile</a>
@@ -26,15 +26,58 @@
   </mat-toolbar>
 <br/>
 
-<div *ngIf="!loggedIn">
-   <app-login></app-login> 
-  </div>
-  <div *ngIf="loggedIn">
-    <!-- <h2>You are logged in.  {{currentUser}}</h2> -->
+
+ <div class="content">
+<mat-card >
+  <mat-card-header>
+
+     <mat-card-title>
+      
+     </mat-card-title>
+     <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+
+     <mat-card-content>
+
+       
+
+      <div *ngIf="!loggedIn">
+        <app-login></app-login> 
+         <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="primary"
+    maxWidth="auto"
+    proportion="25"
+    slides="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="false"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr"
+    >
+    <mat-carousel-slide
+     
+      *ngFor="let slide of slides; let i = index"
+      [image]="slide.image"
+      overlayColor="#00000040"
+      [hideOverlay]="true"
+    ></mat-carousel-slide>
+    </mat-carousel> </div>
+    <router-outlet></router-outlet>
+
+  </mat-card-content>
     
-  </div> 
+     
+ 
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>
+</div>  
   
-  <div *ngIf="!loggedIn">
+  <!--  <div *ngIf="!loggedIn">
     <mat-carousel
 timings="250ms ease-in"
 [autoplay]="true"
@@ -59,13 +102,14 @@ orientation="ltr"
 ></mat-carousel-slide>
 </mat-carousel>
 
+ 
+  </div> -->
 
-
-  </div>
 
   
 
-<router-outlet></router-outlet>
+
+
 
 <!-- <p id="p">Questions</p>
 <br>

@@ -1,16 +1,18 @@
 
 <div id="SearchDiv">
   <mat-card>
+    <mat-card-title><img src="../../assets/img/search_place.png"></mat-card-title>
     <mat-card-content>
       <form  >
-        <p>Search for a place</p>
+        
+
         <mat-form-field >
-          <mat-label>Address: (city,state)</mat-label>
+          <mat-label>Address: (City, State)</mat-label>
           <input matInput id="Address" name="Address" [(ngModel)]="Address" >  
         </mat-form-field>
 
         <mat-form-field >
-          <mat-label>Type:</mat-label>
+          <mat-label>Type of Place (eg. resturant):</mat-label>
           <input matInput id="Type" name="Type"  [(ngModel)]="Type" >
         </mat-form-field>
 
@@ -20,7 +22,7 @@
         </mat-form-field>
 
         <mat-form-field >
-          <mat-label>Radius: (meters)</mat-label>
+          <mat-label>Radius you want to travel: (meters)</mat-label>
           <input matInput id="Radius" name="Radius"  [(ngModel)]="Radius" >
         </mat-form-field>
 

@@ -27,7 +27,8 @@ mat-card {
     
    .login{
     
-    margin-left: 850px;
+     margin-left: 250px; 
+     margin-bottom: 100px;
     
    }
    .loginmessage{
@@ -36,7 +37,7 @@ mat-card {
    }
   .plogin{
   
-    margin-left: 860px;
+     margin-left: 250px; 
   }
   input.example-right-align::-webkit-outer-spin-button,
 input.example-right-align::-webkit-inner-spin-button {

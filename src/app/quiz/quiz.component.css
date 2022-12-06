@@ -27,16 +27,19 @@ mat-card {
     margin: 4px;
 }
 
+#ques{
+  width:600px;
+}
 
 #SearchDiv {
   margin: auto;
-  width: 50%;
+  width: 60%;
   padding: 10px;
 }
 
 #questionsDiv {
-  margin: auto;
-  width: 80%;
+  margin: 5px;
+  width: 95%;
 }
 
 #buttonDiv {
@@ -44,6 +47,7 @@ mat-card {
   margin: auto;
   width: 50%;
 }
+
 
 
 
