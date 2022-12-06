@@ -38,7 +38,7 @@ export class FavoritesComponent implements OnInit {
   console.log("favorite places", this.favArrays)
 
   // show message "no favorite places" instead of h2 tag if no favorite places are added by user
-  if(this.favArrays.length == 0){
+  if(this.favArrays == undefined || this.favArrays.length == 0){
   document.getElementsByClassName("favoriteTitle")[0].innerHTML = "No favorite places added yet!";
   }
 
