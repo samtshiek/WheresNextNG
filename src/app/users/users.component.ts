@@ -18,13 +18,13 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
-  getPlaces(): void {
+  /*getPlaces(): void {
     this.userService.getPlaces().subscribe(places => {
       this.places = places.results;
       console.log("Observable Object: ", places);
       console.log("Observable resolved: " + JSON.stringify(places));
   });
-  }
+  }*/
 
   
 
@@ -35,7 +35,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.getPlaces();
+    //this.getPlaces();
   }
 
   onSelect(user: User): void {
